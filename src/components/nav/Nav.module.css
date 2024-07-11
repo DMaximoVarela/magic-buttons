@@ -1,0 +1,17 @@
+.logo {
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.logo:hover {
+  animation: rotateInfinite 2s linear infinite;
+}
+
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
