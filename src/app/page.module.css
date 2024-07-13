@@ -1,0 +1,16 @@
+.bg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background: rgb(74, 144, 226);
+  background: radial-gradient(
+    circle at center top,
+    rgba(74, 144, 226, 0.25) 3%,
+    rgba(29, 35, 42, 0.02) 66%,
+    rgba(25, 25, 25, 0.15) 70%,
+    rgba(25, 25, 25, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
