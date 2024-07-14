@@ -24,7 +24,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="w-full h-[130px] 2xl:h-[140px] top-0 left-0 absolute lg:flex justify-between items-center p-4 xl:p-8 z-10 shadow-lg backdrop-blur border-b border-b-[#bdc3c780] hidden">
+    <div className="w-full h-[100px] 2xl:h-[120px] top-0 left-0 absolute lg:flex justify-between items-center p-4 xl:p-8 z-10 shadow-lg backdrop-blur border-b border-b-[#bdc3c780] hidden">
       <ul className="list-none flex justify-stretch items-center gap-4 xl:gap-10">
         <li>
           <Image
@@ -48,19 +48,19 @@ const Nav = () => {
           <Searchbar />
         </li>
       </ul>
-      <ul className="list-none flex justify-stretch items-center text-[22px] xl:text-[24px] 2xl:text-[26px] gap-2 xl:gap-4">
+      <ul className="list-none flex justify-stretch items-center text-[22px] xl:text-[24px] 2xl:text-[26px] gap-4 2xl:gap-5">
         <li>|</li>
-        <li className="h-[58px] xl:h-[64px] p-1 xl:p-2 flex justify-center items-center rounded-xl xl:rounded-2xl hover:bg-[#00000033] backdrop-blur cursor-pointer">
+        <li className="p-2 xl:p-2 flex justify-center items-center rounded-xl xl:rounded-2xl hover:bg-[#00000033] backdrop-blur cursor-pointer transition duration-500 ease-in-out transform">
           ES
         </li>
-        <li className="h-[58px] xl:h-[64px] flex justify-center items-center space-x-1 px-2 xl:px-6 text-[#4A90E2] border-[#4A90E2] border rounded-2xl xl:rounded-3xl bg-[#1456a44d] cursor-pointer hover:bg-[#1456a499]">
+        <li className="h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[24px] 2xl:text-[32px] font-medium px-4 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
           <span>Toque Mágico</span>
           <FaWandMagicSparkles />
         </li>
-        <li className="text-[28px] xl:text-[32px] hover:text-gray-200 cursor-pointer">
+        <li className="text-[24px] xl:text-[32px] hover:text-gray-200 cursor-pointer transition duration-500 ease-in-out transform">
           <FaLinkedin />
         </li>
-        <li className="text-[28px] xl:text-[32px] hover:text-gray-200 cursor-pointer">
+        <li className="text-[24px] xl:text-[32px] hover:text-gray-200 cursor-pointer transition duration-500 ease-in-out transform">
           <FaGithub />
         </li>
       </ul>

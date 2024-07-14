@@ -1,15 +1,15 @@
 .logo {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
   @media (min-width: 1280px) {
-    width: 82px;
-    height: 82px;
+    width: 72px;
+    height: 72px;
   }
   @media (min-width: 1440px) {
-    width: 92px;
-    height: 92px;
+    width: 80px;
+    height: 80px;
   }
 }
 
