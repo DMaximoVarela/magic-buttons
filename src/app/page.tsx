@@ -1,7 +1,7 @@
 import style from "./page.module.css";
 import { FaArrowRight } from "react-icons/fa";
 
-export default function Home() {
+export default function LandingPage() {
   return (
     <main className="flex flex-col justify-center items-center">
       <div className={style.bg}></div>
