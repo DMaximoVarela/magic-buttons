@@ -24,9 +24,9 @@ const Filters = () => {
         {["Tamaño", "Estilo"].map((filterType, index) => (
           <div
             key={index}
-            className="relative w-[125px] sm:w-[200px] xl:w-[250px]"
+            className="relative w-[125px] sm:w-[200px] 2xl:w-[250px]"
           >
-            <select className="w-full py-2 pl-4 pr-8 bg-transparent text-white text-[16px] sm:text-[24px] xl:text-[32px] font-medium border border-white rounded-lg appearance-none cursor-pointer">
+            <select className="w-full py-2 pl-4 pr-8 bg-transparent text-white text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium border border-white rounded-lg appearance-none cursor-pointer">
               {(filterType === "Tamaño" ? sizeOptions : styleOptions).map(
                 (option, idx) => (
                   <option key={idx} className="text-white bg-[#191919]">
@@ -36,7 +36,7 @@ const Filters = () => {
               )}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-              <RiArrowDownSFill className="text-white text-[16px] sm:text-[24px] xl:text-[32px]" />
+              <RiArrowDownSFill className="text-white text-[16px] sm:text-[24px] 2xl:text-[32px]" />
             </div>
           </div>
         ))}
@@ -48,10 +48,10 @@ const Filters = () => {
           return (
             <div
               key={idx}
-              className="w-[90px] sm:w-[140px] xl:w-[180px] flex flex-col justify-center items-center gap-2 text-white py-2 font-medium hover:text-[#4A90E2] border-b-2 border-b-transparent hover:border-b-[#4A90E2] cursor-pointer"
+              className="w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2 text-white py-2 font-medium hover:text-[#4A90E2] border-b-2 border-b-transparent hover:border-b-[#4A90E2] cursor-pointer"
             >
-              <Icon className="text-[32px] sm:text-[52px] xl:text-[72px]" />
-              <span className="text-[16px] sm:text-[24px] xl:text-[32px]">
+              <Icon className="text-[32px] sm:text-[52px] 2xl:text-[72px]" />
+              <span className="text-[16px] sm:text-[24px] 2xl:text-[32px]">
                 {filter.name}
               </span>
             </div>
