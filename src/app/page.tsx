@@ -1,5 +1,6 @@
 import style from "./page.module.css";
 import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 export default function LandingPage() {
   return (
@@ -18,10 +19,12 @@ export default function LandingPage() {
           con solo un clic.
         </h3>
       </div>
-      <div className="h-[32px] sm:h-[40px] lg:h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium px-4 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
-        <span>Iniciar Viaje</span>
-        <FaArrowRight />
-      </div>
+      <Link href={"/inicio"}>
+        <div className="h-[32px] sm:h-[40px] lg:h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium px-4 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
+          <span>Iniciar Viaje</span>
+          <FaArrowRight />
+        </div>
+      </Link>
     </main>
   );
 }
