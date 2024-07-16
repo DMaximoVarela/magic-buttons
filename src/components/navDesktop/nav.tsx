@@ -53,7 +53,7 @@ const Nav = () => {
         <li className="p-2 xl:p-2 flex justify-center items-center rounded-xl xl:rounded-2xl hover:bg-[#00000033] backdrop-blur cursor-pointer transition duration-500 ease-in-out transform">
           ES
         </li>
-        <li className="h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[24px] 2xl:text-[32px] font-medium px-4 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
+        <li className="h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[24px] 2xl:text-[32px] font-medium px-4 space-x-1 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
           <span>Toque Mágico</span>
           <FaWandMagicSparkles />
         </li>

@@ -20,7 +20,7 @@ export default function LandingPage() {
         </h3>
       </div>
       <Link href={"/inicio"}>
-        <div className="h-[32px] sm:h-[40px] lg:h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium px-4 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
+        <div className="h-[32px] sm:h-[40px] lg:h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium px-4 space-x-1 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
           <span>Iniciar Viaje</span>
           <FaArrowRight />
         </div>
