@@ -20,7 +20,7 @@ const Filters = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center w-[100vw] p-6 gap-4">
       {/* Filtros de selección (Mobile) */}
-      <div className="w-full flex items-center xsm:gap-6 sm:gap-12 lg:justify-between lg:order-2">
+      <div className="w-full flex items-center justify-center xsm:gap-6 sm:gap-12 lg:order-2">
         {["Tamaño", "Estilo"].map((filterType, index) => (
           <div
             key={index}
@@ -48,7 +48,7 @@ const Filters = () => {
           return (
             <div
               key={idx}
-              className="w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2 text-white py-2 font-medium hover:text-[#4A90E2] border-b-2 border-b-transparent hover:border-b-[#4A90E2] cursor-pointer"
+              className="w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2 text-white py-2 font-medium hover:text-[#4A90E2] border-b-2 border-b-transparent hover:border-b-[#4A90E2] cursor-pointer transition duration-500 ease-in-out transform"
             >
               <Icon className="text-[32px] sm:text-[52px] 2xl:text-[72px]" />
               <span className="text-[16px] sm:text-[24px] 2xl:text-[32px]">
