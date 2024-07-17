@@ -11,8 +11,12 @@ const Page = () => {
           Cada botón tiene su magia. ¿Cuál elegirás hoy?
         </h3>
       </div>
-      <div className="self-center mt-[86px] lg:mt-[110px] 2xl:mt-[130px]">
+      <div className="relative self-center mt-[86px] lg:mt-[110px] 2xl:mt-[130px]">
         <Filters />
+        {/**Contenedor #202020*/}
+        <div className="absolute p-6 w-full h-auto bg-[#202020]">
+          <h1>Hola</h1>
+        </div>
       </div>
     </div>
   );

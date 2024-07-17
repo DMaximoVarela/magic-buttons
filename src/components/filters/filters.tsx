@@ -18,7 +18,7 @@ const Filters = () => {
   ];
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center w-[100vw] p-6 gap-4">
+    <div className="flex flex-col lg:flex-row items-center justify-center w-[100vw] px-6 pt-6 gap-4">
       {/* Filtros de selección (Mobile) */}
       <div className="w-full flex items-center justify-center xsm:gap-6 sm:gap-12 lg:order-2">
         {["Tamaño", "Estilo"].map((filterType, index) => (
