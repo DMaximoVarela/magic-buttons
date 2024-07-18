@@ -1,6 +1,12 @@
+"use client";
+
 import Filters from "@/components/filters/filters";
+import useFiltersStore from "@/stores/filtersStore";
 
 const Page = () => {
+  const filters = useFiltersStore((state) => state.filters);
+  console.log(filters);
+
   return (
     <div className="relative flex flex-col w-[100vw] mt-[52px] sm:mt-[76px] lg:mt-[104px] 2xl:mt-[124px] px-6">
       <div className="absolute top-0 left-0 mx-6 flex flex-col text-start text-white">

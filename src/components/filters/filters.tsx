@@ -1,3 +1,4 @@
+import useFiltersStore from "@/stores/filtersStore";
 import { FaHandPointer, FaMagic, FaSyncAlt } from "react-icons/fa";
 import { RiArrowDownSFill } from "react-icons/ri";
 
@@ -17,6 +18,22 @@ const Filters = () => {
     { name: "Interactivo", icon: FaSyncAlt },
   ];
 
+  const filterSize = useFiltersStore((state) => state.filterSize);
+  const filterStyle = useFiltersStore((state) => state.filterStyle);
+  const filterSelected = useFiltersStore((state) => state.filterSelected);
+
+  const handleFilterBySize = (event) => {
+    filterSize(event.target.value);
+  };
+
+  const handleFilterByStyle = (event) => {
+    filterStyle(event.target.value);
+  };
+
+  const handleFilterSelected = (filter) => {
+    filterSelected(filter);
+  };
+
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center w-[100vw] px-6 pt-6 gap-4">
       {/* Filtros de selección (Mobile) */}
@@ -26,10 +43,22 @@ const Filters = () => {
             key={index}
             className="relative w-[125px] sm:w-[200px] 2xl:w-[250px]"
           >
-            <select className="w-full py-2 pl-4 pr-8 bg-transparent text-white text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium border border-white rounded-lg appearance-none cursor-pointer">
+            <select
+              className="w-full py-2 pl-4 pr-8 bg-transparent text-white text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium border border-white rounded-lg appearance-none cursor-pointer"
+              defaultValue={filterType}
+              onChange={
+                filterType === "Tamaño"
+                  ? handleFilterBySize
+                  : handleFilterByStyle
+              }
+            >
               {(filterType === "Tamaño" ? sizeOptions : styleOptions).map(
                 (option, idx) => (
-                  <option key={idx} className="text-white bg-[#191919]">
+                  <option
+                    key={idx}
+                    value={option}
+                    className="text-white bg-[#191919]"
+                  >
                     {option}
                   </option>
                 )
@@ -49,6 +78,9 @@ const Filters = () => {
             <div
               key={idx}
               className="w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2 text-white py-2 font-medium hover:text-[#4A90E2] border-b-2 border-b-transparent hover:border-b-[#4A90E2] cursor-pointer transition duration-500 ease-in-out transform"
+              onClick={() => {
+                handleFilterSelected(filter.name);
+              }}
             >
               <Icon className="text-[32px] sm:text-[52px] 2xl:text-[72px]" />
               <span className="text-[16px] sm:text-[24px] 2xl:text-[32px]">
