@@ -18,9 +18,13 @@ const Filters = () => {
     { name: "Interactivo", icon: FaSyncAlt },
   ];
 
+  const filtersState = useFiltersStore((state) => state.filters);
   const filterSize = useFiltersStore((state) => state.filterSize);
   const filterStyle = useFiltersStore((state) => state.filterStyle);
   const filterSelected = useFiltersStore((state) => state.filterSelected);
+  const removeFilterSelected = useFiltersStore(
+    (state) => state.removeFilterSelected
+  );
 
   const handleFilterBySize = (event) => {
     filterSize(event.target.value);
@@ -45,7 +49,9 @@ const Filters = () => {
           >
             <select
               className="w-full py-2 pl-4 pr-8 bg-transparent text-white text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium border border-white rounded-lg appearance-none cursor-pointer"
-              defaultValue={filterType}
+              value={
+                filterType == "Tamaño" ? filtersState.size : filtersState.style
+              }
               onChange={
                 filterType === "Tamaño"
                   ? handleFilterBySize
@@ -74,12 +80,17 @@ const Filters = () => {
       <div className="w-full flex items-center justify-between">
         {filters.map((filter, idx) => {
           const Icon = filter.icon;
+          const isSelected = filtersState.filters.includes(filter.name);
           return (
             <div
               key={idx}
-              className="w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2 text-white py-2 font-medium hover:text-[#4A90E2] border-b-2 border-b-transparent hover:border-b-[#4A90E2] cursor-pointer transition duration-500 ease-in-out transform"
+              className={`w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2  py-2 font-medium ${
+                isSelected ? "text-[#4A90E2] border-b-[#4A90E2]" : "text-white"
+              } border-b-2 border-b-transparent hover:text-[#4A90E2] hover:border-b-[#4A90E2] cursor-pointer transition duration-500 ease-in-out transform`}
               onClick={() => {
-                handleFilterSelected(filter.name);
+                isSelected
+                  ? removeFilterSelected(filter.name)
+                  : handleFilterSelected(filter.name);
               }}
             >
               <Icon className="text-[32px] sm:text-[52px] 2xl:text-[72px]" />

@@ -1,12 +1,9 @@
 "use client";
 
 import Filters from "@/components/filters/filters";
-import useFiltersStore from "@/stores/filtersStore";
+import FiltersSelected from "@/components/filtersSelected/filtersSelected";
 
 const Page = () => {
-  const filters = useFiltersStore((state) => state.filters);
-  console.log(filters);
-
   return (
     <div className="relative flex flex-col w-[100vw] mt-[52px] sm:mt-[76px] lg:mt-[104px] 2xl:mt-[124px] px-6">
       <div className="absolute top-0 left-0 mx-6 flex flex-col text-start text-white">
@@ -21,7 +18,15 @@ const Page = () => {
         <Filters />
         {/**Contenedor #202020*/}
         <div className="absolute p-6 w-full h-fit bg-[#202020]">
-          <h1>Hola</h1>
+          <ul className="flex justify-between items-center">
+            <li className="text-[20px] sm:text-[24px] lg:text-[32px] text-white">
+              125 Botones
+            </li>
+            <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
+              Página 1 de 16
+            </li>
+          </ul>
+          <FiltersSelected />
         </div>
       </div>
     </div>
