@@ -18,7 +18,7 @@ const FiltersSelected = () => {
 
   return (
     <div>
-      <ul className="flex flex-wrap gap-3">
+      <ul className="flex flex-wrap gap-3 my-4">
         {filters.size !== "Tamaño" && (
           <li className={stylesListItems} onClick={removeFilterSize}>
             <span>{filters.size}</span>
