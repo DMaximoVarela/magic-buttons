@@ -2,6 +2,7 @@
 
 import Filters from "@/components/filters/filters";
 import FiltersSelected from "@/components/filtersSelected/filtersSelected";
+import ButtonContainer from "@/components/buttonContainer/buttonContainer";
 
 const Page = () => {
   return (
@@ -27,6 +28,7 @@ const Page = () => {
             </li>
           </ul>
           <FiltersSelected />
+          <ButtonContainer />
         </div>
       </div>
     </div>
