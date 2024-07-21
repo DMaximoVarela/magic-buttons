@@ -2,7 +2,7 @@
 
 import Filters from "@/components/filters/filters";
 import FiltersSelected from "@/components/filtersSelected/filtersSelected";
-import ButtonContainer from "@/components/buttonContainer/buttonContainer";
+import Cards from "@/components/cards/cards";
 
 const Page = () => {
   return (
@@ -28,7 +28,7 @@ const Page = () => {
             </li>
           </ul>
           <FiltersSelected />
-          <ButtonContainer />
+          <Cards />
         </div>
       </div>
     </div>
