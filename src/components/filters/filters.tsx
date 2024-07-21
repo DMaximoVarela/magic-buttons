@@ -86,7 +86,7 @@ const Filters = () => {
               key={idx}
               className={`w-[90px] sm:w-[140px] 2xl:w-[180px] flex flex-col justify-center items-center gap-2  py-2 font-medium ${
                 isSelected ? "text-[#4A90E2] border-b-[#4A90E2]" : "text-white"
-              } border-b-2 border-b-transparent hover:text-[#4A90E2] hover:border-b-[#4A90E2] cursor-pointer transition duration-500 ease-in-out transform`}
+              } border-b-2 border-b-transparent hover:text-[#4A90E2] hover:border-b-[#4A90E2] cursor-pointer transition duration-300 ease-in-out transform`}
               onClick={() => {
                 isSelected
                   ? removeFilterSelected(filter.name)

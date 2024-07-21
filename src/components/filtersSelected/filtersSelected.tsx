@@ -9,7 +9,7 @@ const FiltersSelected = () => {
   );
   const resetFilters = useFiltersStore((state) => state.resetFilters);
   const stylesListItems =
-    "flex justify-between items-center w-[120px] sm:w-[135px] lg:w-[160px] px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#6CA4E7] cursor-pointer";
+    "flex justify-between items-center w-fit space-x-2 px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#6CA4E7] cursor-pointer transition duration-300 ease-in-out transform";
 
   const isAnyFilterApplied =
     filters.size !== "Tamaño" ||
@@ -43,7 +43,7 @@ const FiltersSelected = () => {
         ))}
         {isAnyFilterApplied && (
           <li
-            className="flex justify-between items-center w-fit px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#6CA4E7] cursor-pointer"
+            className="flex justify-between items-center w-fit px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#6CA4E7] cursor-pointer transition duration-300 ease-in-out transform "
             onClick={resetFilters}
           >
             Reset
