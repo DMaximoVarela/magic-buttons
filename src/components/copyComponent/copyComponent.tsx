@@ -18,7 +18,7 @@ const CopyComponent: React.FC<TextToCopy> = ({ text }) => {
   const copy = () => {
     navigator.clipboard.writeText(text); // copia el textp al portapapeles
     setIsCopy({
-      text: "Copiado!",
+      text: "¡Copiado!",
       icon: FaCheck,
     });
     setIsClicked(true);
@@ -52,12 +52,12 @@ const CopyComponent: React.FC<TextToCopy> = ({ text }) => {
 
   return (
     <div
-      className="w-[100px] h-auto p-1 rounded-lg bg-[#202020] shadow shadow-[#151515] cursor-pointer"
+      className="w-[90px] sm:w-[100px] h-auto p-1 rounded-lg bg-[#202020] shadow shadow-[#151515] cursor-pointer"
       onClick={copy}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <ul className="flex justify-center items-center text-[16px] text-slate-200 gap-2">
+      <ul className="flex justify-center items-center text-[14px] sm:text-[16px] text-slate-200 gap-1">
         <li>
           <isCopy.icon />
         </li>
