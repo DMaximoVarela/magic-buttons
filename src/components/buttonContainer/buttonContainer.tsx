@@ -7,7 +7,7 @@ const ButtonContainer = () => {
         <CopyComponent text="Copy Test" />
       </div>
       Hola! Soy un Boton FELIZ :{")"}
-      <span className="absolute bottom-0 left-0 w-[95%] mx-2 text-[18px] sm:text-[20px] lg:text-[24px] 3xl:text-[32px] font-medium border-t border-t-[#C7C7C7]">
+      <span className="absolute bottom-0 left-0 w-[95%] mx-2 mb-1 text-[18px] sm:text-[20px] lg:text-[24px] 3xl:text-[32px] font-medium border-t border-t-[#C7C7C7]">
         Botón #1
       </span>
     </div>
