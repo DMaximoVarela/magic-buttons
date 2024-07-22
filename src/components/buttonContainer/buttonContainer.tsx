@@ -29,6 +29,8 @@ const ButtonContainer = () => {
         modal={modal}
         setModal={setModal}
         cssCode={buttons[0].tailwindCode}
+        btnId={buttons[0].id}
+        text={buttons[0].cssCode}
       />
     </div>
   );
