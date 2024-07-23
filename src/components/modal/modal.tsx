@@ -50,7 +50,7 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
                 }`}
                 onClick={() => {
                   setViewActive("code");
-                  setDarkMode(true);
+                  darkMode ? "" : setDarkMode(true);
                 }}
               >
                 Código
