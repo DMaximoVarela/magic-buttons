@@ -43,7 +43,7 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
               >
                 Botón
               </li>
-              <li>|</li>
+              <li className="cursor-context-menu">|</li>
               <li
                 className={`cursor-pointer hover:text-[#4A90E2] ${
                   viewActive == "code" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
@@ -68,7 +68,7 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
                   setDarkMode={setDarkMode}
                 />
               ) : (
-                <CodeView />
+                <CodeView btnId={btnId} />
               )}
             </div>
           </div>

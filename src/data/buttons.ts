@@ -5,7 +5,9 @@ const buttons = [
     categoria: "Hover",
     tamaño: "Pequeño",
     estilo: "Gradiente",
-    htmlCode: `<button class="btn-uno">Botón</button>`,
+    htmlCode: `<button class="btn-uno">
+       Botón
+    </button>`,
     cssCode: `.btn-uno {
   display: flex;
   justify-content: center;
