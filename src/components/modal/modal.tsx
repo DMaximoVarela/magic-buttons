@@ -57,7 +57,7 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
             </ul>
 
             <div
-              className={`relative flex justify-center items-center flex-grow mx-6 mb-6 bg-[#191919] rounded-[32px] ${
+              className={`relative w-[90%] h-[50%] flex self-center justify-center items-center flex-grow mx-6 mb-6 bg-[#191919] rounded-[32px] ${
                 darkMode ? "bg-[#191919]" : "bg-[#e8e8e8]"
               } `}
             >
