@@ -11,13 +11,13 @@ const ButtonContainer = () => {
   return (
     <div className="relative w-[250px] lg:w-[350px] 3xl:w-[450px] h-[200px] sm:h-[250px] 2xl:h-[350px] rounded-2xl bg-[#191919] flex justify-center items-center">
       <div className="absolute top-0 right-0 m-2">
-        <CopyComponent text={buttons[0].cssCode} />
+        <CopyComponent text={buttons[1].cssCode} />
       </div>
       <button
         onClick={() => {
           setModal(true);
         }}
-        className={buttons[0].tailwindCode}
+        className={buttons[1].tailwindCode}
       >
         Botón
       </button>
@@ -25,13 +25,7 @@ const ButtonContainer = () => {
         Botón #1
       </span>
 
-      <Modal
-        modal={modal}
-        setModal={setModal}
-        cssCode={buttons[0].tailwindCode}
-        btnId={buttons[0].id}
-        text={buttons[0].cssCode}
-      />
+      <Modal modal={modal} setModal={setModal} btnId={buttons[1].id} />
     </div>
   );
 };

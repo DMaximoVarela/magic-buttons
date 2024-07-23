@@ -1,4 +1,5 @@
 const buttons = [
+  { id: 0 }, //esto es solo para ayudar con que el index del array comienze en 1, y no en 0
   {
     id: 1,
     categoria: "Hover",
