@@ -12,6 +12,17 @@
   background-color: #191919;
 }
 
+:root::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+:root::-webkit-scrollbar-thumb {
+  background: #191919;
+  border: solid 1px #4e4e4e;
+  border-radius: 4px;
+}
+
 body {
   margin: 0;
   display: flex;
