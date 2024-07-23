@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ButtonView from "../buttonView/buttonView";
+import CodeView from "../codeView/codeView";
 
 interface content {
   modal: boolean;
@@ -11,6 +12,7 @@ interface content {
 
 const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
   const [darkMode, setDarkMode] = useState(true);
+  const [viewActive, setViewActive] = useState("button");
   return (
     <>
       {modal && (
@@ -31,9 +33,27 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
             </div>
 
             <ul className="flex space-x-2 text-[16px] lg:text-[24px] ml-6 mb-4">
-              <li className="cursor-pointer hover:text-slate-100">Botón</li>
+              <li
+                className={`cursor-pointer hover:text-[#4A90E2] ${
+                  viewActive == "button" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
+                }`}
+                onClick={() => {
+                  setViewActive("button");
+                }}
+              >
+                Botón
+              </li>
               <li>|</li>
-              <li className="cursor-pointer hover:text-slate-100">Código</li>
+              <li
+                className={`cursor-pointer hover:text-[#4A90E2] ${
+                  viewActive == "code" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
+                }`}
+                onClick={() => {
+                  setViewActive("code");
+                }}
+              >
+                Código
+              </li>
             </ul>
 
             <div
@@ -41,11 +61,15 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
                 darkMode ? "bg-[#191919]" : "bg-[#e8e8e8]"
               } `}
             >
-              <ButtonView
-                idBtn={btnId}
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-              />
+              {viewActive == "button" ? (
+                <ButtonView
+                  idBtn={btnId}
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                />
+              ) : (
+                <CodeView />
+              )}
             </div>
           </div>
         </div>
