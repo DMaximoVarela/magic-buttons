@@ -1,9 +1,7 @@
-"use client";
-
-import { useState } from "react";
-import { FaRegMoon, FaRegCopy, FaCopy, FaCheck } from "react-icons/fa6";
+import { FaRegMoon } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 import buttons from "@/data/buttons";
+import MiniCopyComponent from "../miniCopyComponent/miniCopyComponent";
 
 interface content {
   idBtn: number;
@@ -12,42 +10,6 @@ interface content {
 }
 
 const ButtonView: React.FC<content> = ({ idBtn, darkMode, setDarkMode }) => {
-  const [isCopy, setIsCopy] = useState({
-    icon: FaRegCopy,
-  });
-  const [isClicked, setIsClicked] = useState(false);
-
-  const copy = () => {
-    navigator.clipboard.writeText(buttons[idBtn].cssCode); // copia el textp al portapapeles
-    setIsCopy({
-      icon: FaCheck,
-    });
-    setIsClicked(true);
-
-    setTimeout(() => {
-      setIsCopy({
-        icon: FaRegCopy,
-      });
-      setIsClicked(false);
-    }, 5000);
-  };
-
-  const handleMouseEnter = () => {
-    if (!isClicked) {
-      setIsCopy({
-        icon: FaCopy,
-      });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isClicked) {
-      setIsCopy({
-        icon: FaRegCopy,
-      });
-    }
-  };
-
   return (
     <div>
       <button className={buttons[idBtn].tailwindCode}>Botón</button>
@@ -60,13 +22,8 @@ const ButtonView: React.FC<content> = ({ idBtn, darkMode, setDarkMode }) => {
         >
           {darkMode ? <FaRegMoon /> : <IoSunnyOutline />}
         </li>
-        <li
-          onClick={copy}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="flex justify-center items-center size-8 lg:size-10 text-[16px] lg:text-[24px] text-slate-100 bg-[#303030] hover:bg-[#272727] rounded-lg cursor-pointer"
-        >
-          <isCopy.icon />
+        <li>
+          <MiniCopyComponent text={buttons[idBtn].cssCode} />
         </li>
       </ul>
     </div>
