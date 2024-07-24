@@ -93,9 +93,9 @@ const CodeView: React.FC<content> = ({ btnId }) => {
         </li>
       </ul>
       <div className="w-full h-[70%] 4xl:h-[80%] 5xl:h-[90%] flex justify-center items-center gap-8">
-        {html ? <CodeComponent btnId={btnId} typeCode="html" /> : ""}
-        {css ? <CodeComponent btnId={btnId} typeCode="css" /> : ""}
-        {tailwind ? <CodeComponent btnId={btnId} typeCode="tailwind" /> : ""}
+        {html && <CodeComponent btnId={btnId} typeCode="html" />}
+        {css && <CodeComponent btnId={btnId} typeCode="css" />}
+        {tailwind && <CodeComponent btnId={btnId} typeCode="tailwind" />}
       </div>
     </div>
   );
