@@ -4,51 +4,41 @@ import { FaCss3Alt, FaHtml5 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import CodeComponent from "../codeComponent/codeComponent";
 import { useState } from "react";
-import buttons from "@/data/buttons";
 
 interface content {
   btnId: number;
 }
 
 const CodeView: React.FC<content> = ({ btnId }) => {
-  const [html, setHtml] = useState({
-    isActive: true,
-    code: buttons[btnId].htmlCode,
-  });
-  const [css, setCss] = useState({
-    isActive: window.innerWidth > 640 ? true : false,
-    code: buttons[btnId].cssCode,
-  });
-  const [tailwind, setTailwind] = useState({
-    isActive: false,
-    code: buttons[btnId].tailwindCode,
-  });
+  const [html, setHtml] = useState(true);
+  const [css, setCss] = useState(window.innerWidth > 640 ? true : false);
+  const [tailwind, setTailwind] = useState(false);
 
   const handleCodeSmall = (typeCode: string) => {
     if (typeCode == "html") {
-      setHtml({ ...html, isActive: true });
-      setCss({ ...css, isActive: false });
-      setTailwind({ ...tailwind, isActive: false });
+      setHtml(true);
+      setCss(false);
+      setTailwind(false);
     } else if (typeCode == "css") {
-      setCss({ ...css, isActive: true });
-      setHtml({ ...html, isActive: false });
-      setTailwind({ ...tailwind, isActive: false });
+      setCss(true);
+      setHtml(false);
+      setTailwind(false);
     } else {
-      setTailwind({ ...tailwind, isActive: true });
-      setHtml({ ...html, isActive: false });
-      setCss({ ...css, isActive: false });
+      setTailwind(true);
+      setHtml(false);
+      setCss(false);
     }
   };
 
   const handleCodeBig = (typeCode: string) => {
     if (typeCode == "css") {
-      setHtml({ ...html, isActive: true });
-      setCss({ ...css, isActive: true });
-      setTailwind({ ...tailwind, isActive: false });
+      setHtml(true);
+      setCss(true);
+      setTailwind(false);
     } else {
-      setTailwind({ ...tailwind, isActive: true });
-      setHtml({ ...html, isActive: false });
-      setCss({ ...css, isActive: false });
+      setTailwind(true);
+      setHtml(false);
+      setCss(false);
     }
   };
 
@@ -58,7 +48,7 @@ const CodeView: React.FC<content> = ({ btnId }) => {
         <li className="sm:hidden">
           <span
             className={`hover:text-[#F3652A] cursor-pointer ${
-              html.isActive == true ? "text-[#F3652A]" : "text-[#C7C7C7]"
+              html ? "text-[#F3652A]" : "text-[#C7C7C7]"
             }`}
             onClick={() => {
               handleCodeSmall("html");
@@ -73,7 +63,7 @@ const CodeView: React.FC<content> = ({ btnId }) => {
         <li>
           <span
             className={`hover:text-[#264DE4] cursor-pointer ${
-              css.isActive == true ? "text-[#264DE4]" : "text-[#C7C7C7]"
+              css ? "text-[#264DE4]" : "text-[#C7C7C7]"
             }`}
             onClick={() => {
               if (window.innerWidth > 640) {
@@ -92,7 +82,7 @@ const CodeView: React.FC<content> = ({ btnId }) => {
         <li>
           <span
             className={`hover:text-[#39BCF9] cursor-pointer ${
-              tailwind.isActive == true ? "text-[#39BCF9]" : "text-[#C7C7C7]"
+              tailwind ? "text-[#39BCF9]" : "text-[#C7C7C7]"
             }`}
             onClick={() => {
               handleCodeBig("tailwind");
@@ -103,21 +93,9 @@ const CodeView: React.FC<content> = ({ btnId }) => {
         </li>
       </ul>
       <div className="w-full h-[70%] 4xl:h-[80%] 5xl:h-[90%] flex justify-center items-center gap-8">
-        {html.isActive == true ? (
-          <CodeComponent btnId={btnId} typeCode="html" />
-        ) : (
-          ""
-        )}
-        {css.isActive == true ? (
-          <CodeComponent btnId={btnId} typeCode="css" />
-        ) : (
-          ""
-        )}
-        {tailwind.isActive == true ? (
-          <CodeComponent btnId={btnId} typeCode="tailwind" />
-        ) : (
-          ""
-        )}
+        {html ? <CodeComponent btnId={btnId} typeCode="html" /> : ""}
+        {css ? <CodeComponent btnId={btnId} typeCode="css" /> : ""}
+        {tailwind ? <CodeComponent btnId={btnId} typeCode="tailwind" /> : ""}
       </div>
     </div>
   );
