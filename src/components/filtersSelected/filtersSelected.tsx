@@ -43,7 +43,7 @@ const FiltersSelected = () => {
         ))}
         {isAnyFilterApplied && (
           <li
-            className="flex justify-between items-center w-fit px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#6CA4E7] cursor-pointer transition duration-300 ease-in-out transform "
+            className="flex justify-between items-center w-fit px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#4A90E2] cursor-pointer transition duration-300 ease-in-out transform "
             onClick={resetFilters}
           >
             Reset
