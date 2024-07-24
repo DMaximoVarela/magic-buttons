@@ -17,7 +17,7 @@ const ButtonContainer = () => {
         onClick={() => {
           setModal(true);
         }}
-        className={buttons[1].tailwindCode}
+        className="{buttons[1].style}"
       >
         Botón
       </button>

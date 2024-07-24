@@ -12,7 +12,7 @@ interface content {
 const ButtonView: React.FC<content> = ({ idBtn, darkMode, setDarkMode }) => {
   return (
     <div>
-      <button className={buttons[idBtn].tailwindCode}>Botón</button>
+      <button className={buttons[idBtn].style}>Botón</button>
       <ul className="absolute bottom-0 right-0 m-4 flex gap-4">
         <li
           onClick={() => {

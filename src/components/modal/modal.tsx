@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ButtonView from "../buttonView/buttonView";
 import CodeView from "../codeView/codeView";
+import buttons from "@/data/buttons";
 
 interface content {
   modal: boolean;
@@ -13,6 +14,7 @@ interface content {
 const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [viewActive, setViewActive] = useState("button");
+
   return (
     <>
       {modal && (

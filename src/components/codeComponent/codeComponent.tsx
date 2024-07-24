@@ -26,7 +26,7 @@ const CodeComponent: React.FC<content> = ({ btnId, typeCode }) => {
           <li className="bg-[#3c3c3c] size-3 lg:size-4 rounded-full"></li>
           <li className="bg-[#3c3c3c] size-3 lg:size-4 rounded-full"></li>
         </ul>
-        <span>button.{typeCode}</span>
+        <span>button.{typeCode == "tailwind" ? "jsx" : typeCode}</span>
         <div className="w-[60px] lg:w-[72px]">
           {/**solo es para ocupar espacio ;)*/}
         </div>
