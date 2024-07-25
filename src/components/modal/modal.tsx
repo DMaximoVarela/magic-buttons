@@ -3,7 +3,6 @@
 import { useState } from "react";
 import ButtonView from "../buttonView/buttonView";
 import CodeView from "../codeView/codeView";
-import buttons from "@/data/buttons";
 
 interface content {
   modal: boolean;

@@ -1,5 +1,5 @@
 import CopyComponent from "../copyComponent/copyComponent";
-import buttons from "@/data/buttons";
+import buttons from "../buttons/buttons";
 import style from "./codeComponent.module.css";
 
 interface content {
