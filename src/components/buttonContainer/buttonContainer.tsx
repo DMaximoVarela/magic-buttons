@@ -28,7 +28,7 @@ const ButtonContainer: React.FC<button> = ({ btnId }) => {
       </div>
 
       <span className="absolute bottom-0 left-0 w-[95%] mx-2 mb-1 text-[18px] sm:text-[20px] lg:text-[24px] 3xl:text-[32px] font-medium border-t border-t-[#C7C7C7]">
-        Botón #1
+        Botón #{buttons[btnId].id}
       </span>
 
       <Modal modal={modal} setModal={setModal} btnId={buttons[btnId].id} />
