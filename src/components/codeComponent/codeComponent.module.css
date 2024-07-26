@@ -2,7 +2,8 @@
   margin-top: 16px;
   width: 95%;
   height: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
   align-self: center;
   display: flex;
   justify-content: flex-start;
