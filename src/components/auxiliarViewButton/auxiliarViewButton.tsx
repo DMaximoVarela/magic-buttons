@@ -3,19 +3,20 @@ import style from "./auxiliarViewButton.module.css";
 const AuxiliarViewButton = () => {
   return (
     <div className="m-8 flex flex-col space-y-2 items-center justify-center">
-      <div className="relative group">
-        <div className="absolute inset-0 bg-indigo-500 rounded-md shadow-lg shadow-black/45 transform translate-y-1 transition-transform group-hover:scale-105"></div>
-        <button className="relative px-8 py-2 text-slate-100 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md font-semibold transition-transform transform group-hover:scale-105 active:translate-y-1">
-          <span className="relative z-10">Botón</span>
+      <div className="relative p-0.5 bg-gradient-to-r from-rose-400 to-red-500 rounded-lg text-slate-100 font-semibold">
+        <button className="relative bg-slate-900 px-12 py-2 rounded-lg text-slate-100 font-semibold cursor-pointer">
+          Botón
+          <span className="absolute flex justify-center items-center inset-0 bg-gradient-to-r from-rose-400 to-red-500 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100">
+            Botón
+          </span>
         </button>
       </div>
 
       <br />
 
       <div className={style.container}>
-        <div className={style.shadow}></div>
-        <button className={style.btn}>
-          <span className={style.txt}>Botón</span>
+        <button className={style.btn}>Botón
+          <span className={style.bg}>Botón</span>
         </button>
       </div>
     </div>

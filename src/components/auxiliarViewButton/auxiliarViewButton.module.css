@@ -1,40 +1,33 @@
 .container {
   position: relative;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.shadow {
-  position: absolute;
-  inset: 0;
-  background-color: #6366f1;
-  border-radius: 0.375rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.45);
-  transform: translateY(0.25rem);
-  transition: inherit;
-  z-index: 0;
+  padding: 0.125rem;
+  background: linear-gradient(to right, #fb7185, #ef4444);
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  font-weight: 600;
 }
 
 .btn {
   position: relative;
-  padding: 0.5rem 2rem;
+  background-color: #0f172a;
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
   color: #f1f5f9;
-  background: linear-gradient(to right, #818cf8, #22d3ee);
-  border-radius: 0.375rem;
   font-weight: 600;
-  transition: transform 0.3s ease;
-  z-index: 1;
+  cursor: pointer;
 }
 
-.container:hover {
-  transform: scale(1.05);
+.bg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: linear-gradient(to right, #fb7185, #ef4444);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
 }
 
-.btn:active {
-  transform: translateY(0.25rem);
-}
-
-.txt {
-  position: relative;
-  z-index: 2;
-}
+.bg:hover {
+  opacity: 1;
+} 

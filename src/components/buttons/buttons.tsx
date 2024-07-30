@@ -223,7 +223,7 @@ const buttons = [
     id: 5,
     categoria: "Hover",
     tamaño: "Mediano",
-    estilo: "3D",
+    estilo: "Gradiente",
     htmlCode: `
       <div class="container">
         <div class="shadow"></div>
@@ -287,6 +287,110 @@ const buttons = [
         <div className="absolute inset-0 bg-indigo-500 rounded-md shadow-lg shadow-black/45 transform translate-y-1 transition-transform group-hover:scale-105"></div>
         <button className="relative px-8 py-2 text-slate-100 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md font-semibold transition-transform transform group-hover:scale-105 active:translate-y-1">
           <span className="relative z-10">Botón</span>
+        </button>
+      </div>
+    ),
+  },
+  {
+    id: 6,
+    categoria: "Hover",
+    tamaño: "Grande",
+    estilo: "Plano",
+    htmlCode: `<button class="btn">Botón</button>`,
+    cssCode: `
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 5rem;
+  border: solid 2px #f1f5f9;
+  color: #f1f5f9;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #06b6d4;
+  border: solid 2px #06b6d4;
+  transition: 300ms ease-in-out;
+}
+
+    `,
+    tailwindCode: `
+      <button className="flex justify-center items-center px-20 py-2 border-2 border-slate-100 text-slate-100 font-semibold hover:border-cyan-500 hover:text-cyan-500 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    `,
+    code: (
+      <button className="flex justify-center items-center px-20 py-2 border-2 border-slate-100 text-slate-100 font-semibold hover:border-cyan-500 hover:text-cyan-500 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    ),
+  },
+  {
+    id: 7,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "Gradiente",
+    htmlCode: `
+      <div class="container">
+        <button class="btn">Botón
+          <span class="bg">Botón</span>
+        </button>
+      </div>
+    `,
+    cssCode: `
+.container {
+  position: relative;
+  padding: 0.125rem;
+  background: linear-gradient(to right, #fb7185, #ef4444);
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.btn {
+  position: relative;
+  background-color: #0f172a;
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: linear-gradient(to right, #fb7185, #ef4444);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.bg:hover {
+  opacity: 1;
+} 
+    `,
+    tailwindCode: `
+      <div className="relative p-0.5 bg-gradient-to-r from-rose-400 to-red-500 rounded-lg text-slate-100 font-semibold">
+        <button className="relative bg-slate-900 px-12 py-2 rounded-lg text-slate-100 font-semibold cursor-pointer">
+          Botón
+          <span className="absolute flex justify-center items-center inset-0 bg-gradient-to-r from-rose-400 to-red-500 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100">
+            Botón
+          </span>
+        </button>
+      </div>
+    `,
+    code: (
+      <div className="relative p-0.5 bg-gradient-to-r from-rose-400 to-red-500 rounded-lg text-slate-100 font-semibold">
+        <button className="relative bg-slate-900 px-12 py-2 rounded-lg text-slate-100 font-semibold cursor-pointer">
+          Botón
+          <span className="absolute flex justify-center items-center inset-0 bg-gradient-to-r from-rose-400 to-red-500 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100">
+            Botón
+          </span>
         </button>
       </div>
     ),
