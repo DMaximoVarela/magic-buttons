@@ -219,6 +219,78 @@ const buttons = [
       </div>
     ),
   },
+  {
+    id: 5,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "3D",
+    htmlCode: `
+      <div class="container">
+        <div class="shadow"></div>
+        <button class="btn">
+          <span class="txt">Botón</span>
+        </button>
+      </div>
+    `,
+    cssCode: `
+.container {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.shadow {
+  position: absolute;
+  inset: 0;
+  background-color: #6366f1;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.45);
+  transform: translateY(0.25rem);
+  transition: inherit;
+  z-index: 0;
+}
+
+.btn {
+  position: relative;
+  padding: 0.5rem 2rem;
+  color: #f1f5f9;
+  background: linear-gradient(to right, #818cf8, #22d3ee);
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.container:hover {
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: translateY(0.25rem);
+}
+
+.txt {
+  position: relative;
+  z-index: 2;
+}
+`,
+    tailwindCode: `
+      <div className="relative group">
+        <div className="absolute inset-0 bg-indigo-500 rounded-md shadow-lg shadow-black/45 transform translate-y-1 transition-transform group-hover:scale-105"></div>
+        <button className="relative px-8 py-2 text-slate-100 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md font-semibold transition-transform transform group-hover:scale-105 active:translate-y-1">
+          <span className="relative z-10">Botón</span>
+        </button>
+      </div>
+    `,
+    code: (
+      <div className="relative group">
+        <div className="absolute inset-0 bg-indigo-500 rounded-md shadow-lg shadow-black/45 transform translate-y-1 transition-transform group-hover:scale-105"></div>
+        <button className="relative px-8 py-2 text-slate-100 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md font-semibold transition-transform transform group-hover:scale-105 active:translate-y-1">
+          <span className="relative z-10">Botón</span>
+        </button>
+      </div>
+    ),
+  },
 ];
 
 export default buttons;

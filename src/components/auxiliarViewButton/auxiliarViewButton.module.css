@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.shadow {
+  position: absolute;
+  inset: 0;
+  background-color: #6366f1;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.45);
+  transform: translateY(0.25rem);
+  transition: inherit;
+  z-index: 0;
+}
+
+.btn {
+  position: relative;
+  padding: 0.5rem 2rem;
+  color: #f1f5f9;
+  background: linear-gradient(to right, #818cf8, #22d3ee);
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.container:hover {
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: translateY(0.25rem);
+}
+
+.txt {
+  position: relative;
+  z-index: 2;
+}

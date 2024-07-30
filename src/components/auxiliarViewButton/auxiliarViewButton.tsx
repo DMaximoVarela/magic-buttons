@@ -3,11 +3,21 @@ import style from "./auxiliarViewButton.module.css";
 const AuxiliarViewButton = () => {
   return (
     <div className="m-8 flex flex-col space-y-2 items-center justify-center">
-      <button
-        className={`flex items-center justify-center bg-amber-400 border-2 border-[#111] rounded-lg box-border text-[#111] cursor-pointer h-[48px] max-w-full font-semibold leading-6 pt-0 px-8 relative text-center touch-manipulation select-none after:bg-[#111] after:rounded-lg after:content-[""] after:block after:h-[48px] after:left-0 after:w-full after:absolute after:top-[-2px] after:transform after:translate-x-0 after:translate-y-0 after:transition-transform after:duration-200 after:ease-out after:z-[-1] hover:after:translate-x-2 hover:after:translate-y-2 active:bg-amber-300 active:outline-none hover:outline-none`}
-      >
-        Botón
-      </button>
+      <div className="relative group">
+        <div className="absolute inset-0 bg-indigo-500 rounded-md shadow-lg shadow-black/45 transform translate-y-1 transition-transform group-hover:scale-105"></div>
+        <button className="relative px-8 py-2 text-slate-100 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md font-semibold transition-transform transform group-hover:scale-105 active:translate-y-1">
+          <span className="relative z-10">Botón</span>
+        </button>
+      </div>
+
+      <br />
+
+      <div className={style.container}>
+        <div className={style.shadow}></div>
+        <button className={style.btn}>
+          <span className={style.txt}>Botón</span>
+        </button>
+      </div>
     </div>
   );
 };
