@@ -106,6 +106,119 @@ const buttons = [
       </div>
     ),
   },
+  {
+    id: 3,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "Plano",
+    htmlCode: `
+        <button class="btn">Botón</button>
+    `,
+    cssCode: `
+.btn {
+  padding: 0.5rem 2rem;
+  border: solid 2px #34d399;
+  border-radius: 1.5rem;
+  color: #f1f5f9;
+  transition: transform 300ms ease-in-out;
+}
+
+.btn:hover {
+  color: #34d399;
+  transform: scale(1.05);
+}
+
+    `,
+    tailwindCode: `
+      <button className="px-8 py-2 border-2 border-emerald-400 rounded-3xl text-slate-100 hover:text-emerald-400 transition duration-300 ease-in-out transform hover:scale-105">
+        Botón
+      </button>
+    `,
+    code: (
+      <button className="px-8 py-2 border-2 border-emerald-400 rounded-3xl text-slate-100 hover:text-emerald-400 transition duration-300 ease-in-out transform hover:scale-105">
+        Botón
+      </button>
+    ),
+  },
+  {
+    id: 4,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "Plano",
+    htmlCode: `
+        <button class="btn">Botón</button>
+    `,
+    cssCode: `
+    .btn {
+  align-items: center;
+  background-color: #fbbf24;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 2rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(0, 0);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
+}
+
+.btn:hover:after {
+  transform: translate(8px, 8px);
+}
+
+.btn:active {
+  background-color: #fcd34d;
+  outline: 0;
+}
+
+.btn:hover {
+  outline: 0;
+}
+
+    `,
+    tailwindCode: `
+      <button
+        className={"flex items-center justify-center bg-amber-400 border-2 border-[#111] rounded-lg box-border text-[#111] cursor-pointer h-[48px] max-w-full font-semibold leading-6 pt-0 px-8 relative text-center touch-manipulation select-none after:bg-[#111] after:rounded-lg after:content-[""] after:block after:h-[48px] after:left-0 after:w-full after:absolute after:top-[-2px] after:transform after:translate-x-0 after:translate-y-0 after:transition-transform after:duration-200 after:ease-out after:z-[-1] hover:after:translate-x-2 hover:after:translate-y-2 active:bg-amber-300 active:outline-none hover:outline-none"}
+      >
+        Botón
+      </button>
+    `,
+    code: (
+      <div className="relative flex justify-center items-center w-fit group">
+        <span className="absolute inset-0 bg-[#111] rounded-lg transition-transform duration-200 ease-out z-0 transform group-hover:translate-x-2 group-hover:translate-y-2"></span>
+
+        <button className="relative flex items-center justify-center bg-amber-400 border-2 border-[#111] rounded-lg box-border text-[#111] cursor-pointer h-[48px] max-w-full font-semibold leading-6 pt-0 px-8 text-center touch-manipulation select-none z-10 active:bg-amber-300">
+          <span className="relative z-10">Botón</span>
+        </button>
+      </div>
+    ),
+  },
 ];
 
 export default buttons;
