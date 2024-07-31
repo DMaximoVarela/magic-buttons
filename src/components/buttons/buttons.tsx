@@ -395,6 +395,172 @@ const buttons = [
       </div>
     ),
   },
+  {
+    id: 8,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "Plano",
+    htmlCode: `
+        <button class="btn">Botón
+          Botón
+        </button>
+    `,
+    cssCode: `
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  color: #f8fafc;
+  background-color: #f43f5e;
+  font-weight: 600;
+  border-radius: 1rem;
+  border: solid 2px transparent;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.btn:hover {
+  border: solid 2px #f8fafc;
+}
+    `,
+    tailwindCode: `
+      <button className="flex justify-center items-center px-10 text-slate-50 font-semibold py-2 rounded-2xl bg-rose-500 border-2 border-transparent hover:border-rose-100 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    `,
+    code: (
+      <button className="flex justify-center items-center px-10 text-slate-50 font-semibold py-2 rounded-2xl bg-rose-500 border-2 border-transparent hover:border-rose-100 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    ),
+  },
+  {
+    id: 9,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "Plano",
+    htmlCode: `
+        <button class="btn">Botón
+          Botón
+        </button>
+    `,
+    cssCode: `
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  color: #f1f5f9;
+  background-color: #6366f1;
+  border: solid 2px #f1f5f9;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+    `,
+    tailwindCode: `
+      <button className="flex justify-center items-center px-8 py-2 text-slate-100 bg-indigo-500 border-2 border-slate-100 rounded-md hover:bg-slate-100 hover:text-slate-900 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    `,
+    code: (
+      <button className="flex justify-center items-center px-8 py-2 text-slate-100 bg-indigo-500 border-2 border-slate-100 rounded-md hover:bg-slate-100 hover:text-slate-900 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    ),
+  },
+  {
+    id: 10,
+    categoria: "Hover",
+    tamaño: "Grande",
+    estilo: "Plano",
+    htmlCode: `
+        <button class="btn">Botón
+          Botón
+        </button>
+    `,
+    cssCode: `
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 3rem;
+  color: #f1f5f9;
+  background-color: #dc2626;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+    `,
+    tailwindCode: `
+      <button className="flex justify-center items-center px-12 py-4 text-slate-100 bg-red-600 rounded hover:text-slate-900 hover:bg-slate-200 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    `,
+    code: (
+      <button className="flex justify-center items-center px-12 py-4 text-slate-100 bg-red-600 rounded hover:text-slate-900 hover:bg-slate-200 cursor-pointer transition duration-300 ease-in-out">
+        Botón
+      </button>
+    ),
+  },
+  {
+    id: 11,
+    categoria: "Hover",
+    tamaño: "Grande",
+    estilo: "Plano",
+    htmlCode: `
+        <button class="btn">Botón
+          Botón
+        </button>
+    `,
+    cssCode: `
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 4rem;
+  color: #f1f5f9;
+  background-color: #22c55e;
+  border: solid 2px #f1f5f9;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 1.5rem;
+  transition: 300ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: #15803d;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  background-color: #22c55e;
+}
+    `,
+    tailwindCode: `
+      <button className="flex justify-center items-center px-16 py-3 text-slate-100 bg-green-500 border-2 border-slate-100 rounded-tl-3xl rounded-tr rounded-br-3xl rounded-bl hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105 active:bg-green-500">
+        Botón
+      </button>
+    `,
+    code: (
+      <button className="flex justify-center items-center px-16 py-3 text-slate-100 bg-green-500 border-2 border-slate-100 rounded-tl-3xl rounded-tr rounded-br-3xl rounded-bl hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105 active:bg-green-500">
+        Botón
+      </button>
+    ),
+  },
 ];
 
 export default buttons;
