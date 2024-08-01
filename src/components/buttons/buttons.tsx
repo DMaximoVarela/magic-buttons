@@ -561,6 +561,106 @@ const buttons = [
       </button>
     ),
   },
+  {
+    id: 12,
+    categoria: "Hover",
+    tamaño: "Grande",
+    estilo: "Elevado",
+    htmlCode: `
+      <button class="btn">
+        <span class="bg"></span>
+        <span class="borderWhite"></span>
+        <span class="borderGray"></span>
+        <span class="txt">Botón</span>
+      </button>
+    `,
+    cssCode: `
+.btn {
+  position: relative;
+  padding: 1rem 4rem;
+  color: #f1f5f9;
+  font-weight: 600;
+  background-color: #9ca3af;
+  border: solid 2px black;
+  border-radius: 4px;
+  transition: transform 300ms ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.borderWhite {
+  position: absolute;
+  inset: 0;
+  border-top: solid 2px #f1f5f9;
+  border-left: solid 2px #f1f5f9;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.borderGray {
+  position: absolute;
+  inset: 0;
+  border-bottom: solid 2px #374151;
+  border-right: solid 2px #374151;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.txt {
+  position: relative;
+  z-index: 3;
+}
+    `,
+    tailwindCode: `
+      <button className="relative px-16 py-4 text-slate-100 font-semibold bg-gray-400 border-2 border-black rounded transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+        <span
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
+          style={{
+            backgroundImage:
+              "url('https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9')",
+          }}
+        >
+          {/**Una disculpa por utilizar estilos en linea, sino no es posible este efecto :)*/}
+        </span>
+        <span className="absolute inset-0 border-t-2 border-l-2 border-slate-100 pointer-events-none z-[2]"></span>
+        <span className="absolute inset-0 border-b-2 border-r-2 border-gray-700 pointer-events-none z-[2]"></span>
+        <span className="relative z-[3]">Botón</span>
+      </button>
+    `,
+    code: (
+      <button className="relative px-16 py-4 text-slate-100 font-semibold bg-gray-400 border-2 border-black rounded transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+        <span
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
+          style={{
+            backgroundImage:
+              "url('https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9')",
+          }}
+        >
+          {/**Una disculpa por utilizar estilos en linea, sino no es posible este efecto :)*/}
+        </span>
+        <span className="absolute inset-0 border-t-2 border-l-2 border-slate-100 pointer-events-none z-[2]"></span>
+        <span className="absolute inset-0 border-b-2 border-r-2 border-gray-700 pointer-events-none z-[2]"></span>
+        <span className="relative z-[3]">Botón</span>
+      </button>
+    ),
+  },
 ];
 
 export default buttons;

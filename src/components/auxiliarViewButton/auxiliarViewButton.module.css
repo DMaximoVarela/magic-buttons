@@ -1,23 +1,52 @@
 .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.75rem 4rem;
+  position: relative;
+  padding: 1rem 4rem;
   color: #f1f5f9;
-  background-color: #22c55e;
-  border: solid 2px #f1f5f9;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 1.5rem;
-  transition: 300ms ease-in-out;
+  font-weight: 600;
+  background-color: #9ca3af;
+  border: solid 2px black;
+  border-radius: 4px;
+  transition: transform 300ms ease-in-out;
 }
 
 .btn:hover {
-  background-color: #15803d;
   transform: scale(1.05);
 }
 
 .btn:active {
-  background-color: #22c55e;
+  transform: scale(0.95);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.borderWhite {
+  position: absolute;
+  inset: 0;
+  border-top: solid 2px #f1f5f9;
+  border-left: solid 2px #f1f5f9;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.borderGray {
+  position: absolute;
+  inset: 0;
+  border-bottom: solid 2px #374151;
+  border-right: solid 2px #374151;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.txt {
+  position: relative;
+  z-index: 3;
 }
