@@ -1,12 +1,11 @@
 .btn {
   position: relative;
-  padding: 1rem 4rem;
-  color: #f1f5f9;
-  font-weight: 600;
-  background-color: #9ca3af;
-  border: solid 2px black;
-  border-radius: 4px;
-  transition: transform 300ms ease-in-out;
+  padding: 0.5rem 2rem;
+  background-color: #0f172a;
+  border-radius: 1rem;
+  border: solid 0.5px #5eead4;
+  box-shadow: 0 1px 3px 0 #5eead4, 0 1px 2px -1px #5eead4;
+  transition: transform 150ms ease-in-out;
 }
 
 .btn:hover {
@@ -17,36 +16,27 @@
   transform: scale(0.95);
 }
 
-.bg {
+.txtNeon {
   position: absolute;
   inset: 0;
-  background-image: url("https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.35;
-  z-index: 1;
-}
-
-.borderWhite {
-  position: absolute;
-  inset: 0;
-  border-top: solid 2px #f1f5f9;
-  border-left: solid 2px #f1f5f9;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.borderGray {
-  position: absolute;
-  inset: 0;
-  border-bottom: solid 2px #374151;
-  border-right: solid 2px #374151;
-  pointer-events: none;
-  z-index: 2;
+  font-weight: 600;
+  color: #5eead4;
+  filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .txt {
   position: relative;
-  z-index: 3;
+  font-weight: 600;
+  color: #2dd4bf;
+}
+
+.borderNeon {
+  position: absolute;
+  inset: 0;
+  border: solid 1px #5eead4;
+  border-radius: 1rem;
+  filter: blur(4px);
 }

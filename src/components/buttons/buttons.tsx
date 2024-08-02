@@ -1,3 +1,5 @@
+import { FaTrash } from "react-icons/fa";
+
 const buttons = [
   { id: 0 }, // Esto es solo para ayudar con que el index del array comience en 1, y no en 0
   {
@@ -658,6 +660,247 @@ const buttons = [
         <span className="absolute inset-0 border-t-2 border-l-2 border-slate-100 pointer-events-none z-[2]"></span>
         <span className="absolute inset-0 border-b-2 border-r-2 border-gray-700 pointer-events-none z-[2]"></span>
         <span className="relative z-[3]">Botón</span>
+      </button>
+    ),
+  },
+  {
+    id: 13,
+    categoria: "Interactivo",
+    tamaño: "Mediano",
+    estilo: "Redondeado",
+    htmlCode: `
+      <!-- Necesitaras instalar react-icons -->
+      <!-- import { FaTrash } from "react-icons/fa"; -->
+
+      <button class="btn">
+        <FaTrash />
+        <span>Eliminar</span>
+      </button>
+    `,
+    cssCode: `
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  color: #f1f5f9;
+  background-color: rgb(0 0 0 / 0.1);
+  backdrop-filter: blur(8px);
+  border: solid 2px transparent;
+  border-radius: 0.75rem;
+  transition: 300ms ease-in-out;
+}
+
+.btn > *:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.btn:hover {
+  color: #dc2626;
+  border: solid 2px #dc2626;
+}
+
+    `,
+    tailwindCode: `
+      {/** Necesitaras instalar react-icons */}
+      {/** import { FaTrash } from "react-icons/fa"; */}
+
+      <button className="flex justify-center items-center p-2 space-x-2 text-slate-100 bg-black/10 backdrop-blur border-2 border-transparent rounded-xl hover:text-red-600 hover:border-red-600 transition duration-300 ease-in-out">
+        <FaTrash />
+        <span>Eliminar</span>
+      </button>
+    `,
+    code: (
+      <>
+        {/** Necesitaras instalar react-icons */}
+        {/** import { FaTrash } from "react-icons/fa"; */}
+
+        <button className="flex justify-center items-center p-2 space-x-2 text-slate-100 bg-black/10 backdrop-blur border-2 border-transparent rounded-xl hover:text-red-600 hover:border-red-600 transition duration-300 ease-in-out">
+          <FaTrash />
+          <span>Eliminar</span>
+        </button>
+      </>
+    ),
+  },
+  {
+    id: 14,
+    categoria: "Hover",
+    tamaño: "Pequeño",
+    estilo: "Redondeado",
+    htmlCode: `
+      <button class="btn">
+        <span class="bg"></span>
+        <span class="border"></span>
+        <span class="txt">Botón</span>
+      </button>
+    `,
+    cssCode: `
+.btn {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border: solid 2px black;
+  border-radius: 0.375rem;
+  background-color: #cbd5e1;
+  background-clip: padding-box;
+  transition: transform 150ms ease-in-out;
+}
+
+.btn::after {
+  position: absolute;
+  content: "";
+  background-color: #94a3b8;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.btn:hover {
+  transform: scale(0.95);
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.ibb.co/tbFn3p9/pointspattern.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.border {
+  position: absolute;
+  inset: 0;
+  border-top: solid 2px #f1f5f9;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  z-index: 2;
+}
+
+.txt {
+  position: relative;
+  z-index: 2;
+  color: black;
+  font-weight: 700;
+}
+`,
+    tailwindCode: `
+      <button
+        className="relative px-6 py-3 rounded-md border-2 border-black
+        bg-slate-300 bg-clip-padding after:absolute after:content-[''] after:bg-slate-400 after:inset-x-0 after:bottom-0 after:h-1/2 after:rounded-b-md
+        hover:scale-95 active:scale-90 transition-transform duration-150 ease-in-out"
+      >
+        <span
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
+          style={{
+            backgroundImage:
+              "url('https://i.ibb.co/tbFn3p9/pointspattern.png')",
+          }}
+        >
+          {/**Una disculpa por utilizar estilos en linea, sino no es posible este efecto :)*/}
+        </span>
+        <span className="absolute inset-0 border-t-2 border-t-slate-100 rounded-t-md z-[2]"></span>
+        <span className="relative z-[2] text-black font-bold">Botón</span>
+      </button>
+    `,
+    code: (
+      <button
+        className="relative px-6 py-3 rounded-md border-2 border-black
+        bg-slate-300 bg-clip-padding after:absolute after:content-[''] after:bg-slate-400 after:inset-x-0 after:bottom-0 after:h-1/2 after:rounded-b-md
+        hover:scale-95 active:scale-90 transition-transform duration-150 ease-in-out"
+      >
+        <span
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
+          style={{
+            backgroundImage:
+              "url('https://i.ibb.co/tbFn3p9/pointspattern.png')",
+          }}
+        ></span>
+        <span className="absolute inset-0 border-t-2 border-t-slate-100 rounded-t-md z-[2]"></span>
+        <span className="relative z-[2] text-black font-bold">Botón</span>
+      </button>
+    ),
+  },
+  {
+    id: 15,
+    categoria: "Hover",
+    tamaño: "Mediano",
+    estilo: "Elevado",
+    htmlCode: `
+      <button class="btn">
+        <span class="txtNeon">Botón</span>
+        <span class="txt">Botón</span>
+        <span class="borderNeon"></span>
+      </button>
+    `,
+    cssCode: `
+.btn {
+  position: relative;
+  padding: 0.5rem 2rem;
+  background-color: #0f172a;
+  border-radius: 1rem;
+  border: solid 0.5px #5eead4;
+  box-shadow: 0 1px 3px 0 #5eead4, 0 1px 2px -1px #5eead4;
+  transition: transform 150ms ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.txtNeon {
+  position: absolute;
+  inset: 0;
+  font-weight: 600;
+  color: #5eead4;
+  filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.txt {
+  position: relative;
+  font-weight: 600;
+  color: #2dd4bf;
+}
+
+.borderNeon {
+  position: absolute;
+  inset: 0;
+  border: solid 1px #5eead4;
+  border-radius: 1rem;
+  filter: blur(4px);
+}
+`,
+    tailwindCode: `
+      <button className="relative px-8 py-2 bg-slate-900 rounded-2xl border-[.5px] border-teal-300 shadow shadow-teal-300 transition-transform transform hover:scale-105 active:scale-95">
+        <span className="absolute inset-0 font-semibold text-teal-300 blur-sm flex items-center justify-center">
+          Botón
+        </span>
+        <span className="relative font-semibold text-teal-400">Botón</span>
+        <span className="absolute inset-0 border border-teal-300 rounded-2xl blur-sm"></span>
+      </button>
+    `,
+    code: (
+      <button className="relative px-8 py-2 bg-slate-900 rounded-2xl border-[.5px] border-teal-300 shadow shadow-teal-300 transition-transform transform hover:scale-105 active:scale-95">
+        <span className="absolute inset-0 font-semibold text-teal-300 blur-sm flex items-center justify-center">
+          Botón
+        </span>
+        <span className="relative font-semibold text-teal-400">Botón</span>
+        <span className="absolute inset-0 border border-teal-300 rounded-2xl blur-sm"></span>
       </button>
     ),
   },
