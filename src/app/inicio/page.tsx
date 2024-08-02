@@ -3,6 +3,7 @@
 import Filters from "@/components/filters/filters";
 import FiltersSelected from "@/components/filtersSelected/filtersSelected";
 import Cards from "@/components/cards/cards";
+import buttons from "@/components/buttons/buttons";
 
 const Page = () => {
   return (
@@ -21,7 +22,7 @@ const Page = () => {
         <div className="absolute p-6 w-full h-fit bg-[#202020]">
           <ul className="flex justify-between items-center">
             <li className="text-[20px] sm:text-[24px] lg:text-[32px] text-white">
-              125 Botones
+              {`${buttons.length - 1} Botones`}
             </li>
             <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
               Página 1 de 16
