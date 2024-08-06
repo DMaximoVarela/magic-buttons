@@ -9,14 +9,23 @@ interface content {
 
 const CodeComponent: React.FC<content> = ({ btnId, typeCode }) => {
   const buttonCode = (typeCode: string) => {
-    if (typeCode == "html") {
+    if (typeCode === "html") {
       return buttons[btnId].htmlCode;
-    } else if (typeCode == "css") {
+    } else if (typeCode === "css") {
       return buttons[btnId].cssCode;
     } else {
       return buttons[btnId].tailwindCode;
     }
   };
+
+  const addLineNumbers = (code: string) => {
+    return code
+      .split("\n")
+      .map((line, index) => `${index + 1}  ${line}`)
+      .join("\n");
+  };
+
+  const numberedCode = addLineNumbers(buttonCode(typeCode));
 
   return (
     <div className="relative flex flex-col self-center justify-center items-center w-[90%] sm:w-[45%] h-[100%] border-[.5px] rounded-2xl bg-[#202020]">
@@ -26,13 +35,13 @@ const CodeComponent: React.FC<content> = ({ btnId, typeCode }) => {
           <li className="bg-[#3c3c3c] size-3 lg:size-4 rounded-full"></li>
           <li className="bg-[#3c3c3c] size-3 lg:size-4 rounded-full"></li>
         </ul>
-        <span>button.{typeCode == "tailwind" ? "jsx" : typeCode}</span>
+        <span>button.{typeCode === "tailwind" ? "jsx" : typeCode}</span>
         <div className="w-[60px] lg:w-[72px]">
           {/**solo es para ocupar espacio ;)*/}
         </div>
       </div>
       <div className={style.container}>
-        <pre className="whitespace-pre-wrap">{buttonCode(typeCode)}</pre>
+        <pre className="whitespace-pre">{numberedCode}</pre>
       </div>
       <div className="absolute bottom-0 right-0 m-2">
         <CopyComponent text={buttonCode(typeCode)} />
