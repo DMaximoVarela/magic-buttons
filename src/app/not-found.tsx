@@ -16,7 +16,7 @@ export default function NotFound() {
         </h1>
         <Link
           href={"/inicio"}
-          className="flex justify-start items-center space-x-1 cursor-pointer w-fit"
+          className="flex justify-start items-center space-x-1 cursor-pointer w-fit hover:text-[#4a90e2] transition duration-200 ease-in-out"
         >
           <FaArrowLeft className="text-[14px] sm:text-[16px] xl:text-[20px] 2xl:text-[24px] 4xl:text-[28px]" />
           <h2 className="text-[14px] sm:text-[20px] xl:text-[24px] 2xl:text-[32px] 4xl:text-[36px] font-normal">
