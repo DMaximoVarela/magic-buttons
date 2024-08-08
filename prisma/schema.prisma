@@ -9,8 +9,10 @@ datasource db {
 
 model Button {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  cssCode   String
-  category  String
-  tags      String[]
+  categoria  String
+  tamaño String
+  estilo String
+  htmlCode String
+  cssCode String
+  tailwindCode String
 }
