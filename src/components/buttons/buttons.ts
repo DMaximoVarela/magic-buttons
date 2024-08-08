@@ -28,11 +28,6 @@ const buttons = [
     tailwindCode: `<button className="flex justify-center items-center w-[150px] p-2 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-3xl text-slate-100 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-violet-600 hover:shadow-lg hover:shadow-indigo-500/50">
   Botón
 </button>`,
-    code: (
-      <button className="flex justify-center items-center w-[150px] p-2 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-3xl text-slate-100 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-violet-600 hover:shadow-lg hover:shadow-indigo-500/50">
-        Botón
-      </button>
-    ),
   },
   {
     id: 2,
@@ -92,14 +87,6 @@ const buttons = [
     <span className="relative z-10">Botón</span>
   </button>
 </div>`,
-    code: (
-      <div className="relative">
-        <div className="absolute inset-0 bg-blue-800 border border-blue-950 rounded-lg shadow-lg shadow-black/45 transform translate-y-2"></div>
-        <button className="relative px-6 py-2 text-slate-100 bg-blue-500 rounded-lg border border-blue-950 font-semibold focus:outline-none transition-transform transform active:translate-y-1">
-          <span className="relative z-10">Botón</span>
-        </button>
-      </div>
-    ),
   },
   {
     id: 3,
@@ -122,11 +109,6 @@ const buttons = [
     tailwindCode: `<button className="px-8 py-2 border-2 border-emerald-400 rounded-3xl text-slate-100 hover:text-emerald-400 transition duration-300 ease-in-out transform hover:scale-105">
   Botón
 </button>`,
-    code: (
-      <button className="px-8 py-2 border-2 border-emerald-400 rounded-3xl text-slate-100 hover:text-emerald-400 transition duration-300 ease-in-out transform hover:scale-105">
-        Botón
-      </button>
-    ),
   },
   {
     id: 4,
@@ -185,20 +167,13 @@ const buttons = [
 .btn:hover {
   outline: 0;
 }`,
-    tailwindCode: `<button
-  className={"flex items-center justify-center bg-amber-400 border-2 border-[#111] rounded-lg box-border text-[#111] cursor-pointer h-[48px] max-w-full font-semibold leading-6 pt-0 px-8 relative text-center touch-manipulation select-none after:bg-[#111] after:rounded-lg after:content-[""] after:block after:h-[48px] after:left-0 after:w-full after:absolute after:top-[-2px] after:transform after:translate-x-0 after:translate-y-0 after:transition-transform after:duration-200 after:ease-out after:z-[-1] hover:after:translate-x-2 hover:after:translate-y-2 active:bg-amber-300 active:outline-none hover:outline-none"}
->
-  Botón
-</button>`,
-    code: (
-      <div className="relative flex justify-center items-center w-fit group">
-        <span className="absolute inset-0 bg-[#111] rounded-lg transition-transform duration-200 ease-out z-0 transform group-hover:translate-x-2 group-hover:translate-y-2"></span>
+    tailwindCode: `<div className="relative flex justify-center items-center w-fit group">
+  <span className="absolute inset-0 bg-[#111] rounded-lg transition-transform duration-200 ease-out z-0 transform group-hover:translate-x-2 group-hover:translate-y-2"></span>
 
-        <button className="relative flex items-center justify-center bg-amber-400 border-2 border-[#111] rounded-lg box-border text-[#111] cursor-pointer h-[48px] max-w-full font-semibold leading-6 pt-0 px-8 text-center touch-manipulation select-none z-10 active:bg-amber-300">
-          <span className="relative z-10">Botón</span>
-        </button>
-      </div>
-    ),
+  <button className="relative flex items-center justify-center bg-amber-400 border-2 border-[#111] rounded-lg box-border text-[#111] cursor-pointer h-[48px] max-w-full font-semibold leading-6 pt-0 px-8 text-center touch-manipulation select-none z-10 active:bg-amber-300">
+    <span className="relative z-10">Botón</span>
+  </button>
+</div>`,
   },
   {
     id: 5,
@@ -257,14 +232,6 @@ const buttons = [
     <span className="relative z-10">Botón</span>
   </button>
 </div>`,
-    code: (
-      <div className="relative group">
-        <div className="absolute inset-0 bg-indigo-500 rounded-md shadow-lg shadow-black/45 transform translate-y-1 transition-transform group-hover:scale-105"></div>
-        <button className="relative px-8 py-2 text-slate-100 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-md font-semibold transition-transform transform group-hover:scale-105 active:translate-y-1">
-          <span className="relative z-10">Botón</span>
-        </button>
-      </div>
-    ),
   },
   {
     id: 6,
@@ -291,11 +258,6 @@ const buttons = [
     tailwindCode: `<button className="flex justify-center items-center px-20 py-2 border-2 border-slate-100 text-slate-100 font-semibold hover:border-cyan-500 hover:text-cyan-500 cursor-pointer transition duration-300 ease-in-out">
   Botón
 </button>`,
-    code: (
-      <button className="flex justify-center items-center px-20 py-2 border-2 border-slate-100 text-slate-100 font-semibold hover:border-cyan-500 hover:text-cyan-500 cursor-pointer transition duration-300 ease-in-out">
-        Botón
-      </button>
-    ),
   },
   {
     id: 7,
@@ -348,16 +310,6 @@ const buttons = [
     </span>
   </button>
 </div>`,
-    code: (
-      <div className="relative p-0.5 bg-gradient-to-r from-rose-400 to-red-500 rounded-lg text-slate-100 font-semibold">
-        <button className="relative bg-slate-900 px-12 py-2 rounded-lg text-slate-100 font-semibold cursor-pointer">
-          Botón
-          <span className="absolute flex justify-center items-center inset-0 bg-gradient-to-r from-rose-400 to-red-500 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100">
-            Botón
-          </span>
-        </button>
-      </div>
-    ),
   },
   {
     id: 8,
@@ -387,11 +339,6 @@ const buttons = [
     tailwindCode: `<button className="flex justify-center items-center px-10 text-slate-50 font-semibold py-2 rounded-2xl bg-rose-500 border-2 border-transparent hover:border-rose-100 cursor-pointer transition duration-300 ease-in-out">
   Botón
 </button>`,
-    code: (
-      <button className="flex justify-center items-center px-10 text-slate-50 font-semibold py-2 rounded-2xl bg-rose-500 border-2 border-transparent hover:border-rose-100 cursor-pointer transition duration-300 ease-in-out">
-        Botón
-      </button>
-    ),
   },
   {
     id: 9,
@@ -421,11 +368,6 @@ const buttons = [
     tailwindCode: `<button className="flex justify-center items-center px-8 py-2 text-slate-100 bg-indigo-500 border-2 border-slate-100 rounded-md hover:bg-slate-100 hover:text-slate-900 cursor-pointer transition duration-300 ease-in-out">
   Botón
 </button>`,
-    code: (
-      <button className="flex justify-center items-center px-8 py-2 text-slate-100 bg-indigo-500 border-2 border-slate-100 rounded-md hover:bg-slate-100 hover:text-slate-900 cursor-pointer transition duration-300 ease-in-out">
-        Botón
-      </button>
-    ),
   },
   {
     id: 10,
@@ -454,11 +396,6 @@ const buttons = [
     tailwindCode: `<button className="flex justify-center items-center px-12 py-4 text-slate-100 bg-red-600 rounded hover:text-slate-900 hover:bg-slate-200 cursor-pointer transition duration-300 ease-in-out">
   Botón
 </button>`,
-    code: (
-      <button className="flex justify-center items-center px-12 py-4 text-slate-100 bg-red-600 rounded hover:text-slate-900 hover:bg-slate-200 cursor-pointer transition duration-300 ease-in-out">
-        Botón
-      </button>
-    ),
   },
   {
     id: 11,
@@ -494,11 +431,6 @@ const buttons = [
     tailwindCode: `<button className="flex justify-center items-center px-16 py-3 text-slate-100 bg-green-500 border-2 border-slate-100 rounded-tl-3xl rounded-tr rounded-br-3xl rounded-bl hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105 active:bg-green-500">
   Botón
 </button>`,
-    code: (
-      <button className="flex justify-center items-center px-16 py-3 text-slate-100 bg-green-500 border-2 border-slate-100 rounded-tl-3xl rounded-tr rounded-br-3xl rounded-bl hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105 active:bg-green-500">
-        Botón
-      </button>
-    ),
   },
   {
     id: 12,
@@ -506,7 +438,6 @@ const buttons = [
     tamaño: "Grande",
     estilo: "Elevado",
     htmlCode: `<button class="btn">
-  <span class="bg"></span>
   <span class="borderWhite"></span>
   <span class="borderGray"></span>
   <span class="txt">Botón</span>
@@ -528,17 +459,6 @@ const buttons = [
 
 .btn:active {
   transform: scale(0.95);
-}
-
-.bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.35;
-  z-index: 1;
 }
 
 .borderWhite {
@@ -564,46 +484,17 @@ const buttons = [
   z-index: 3;
 }`,
     tailwindCode: `<button className="relative px-16 py-4 text-slate-100 font-semibold bg-gray-400 border-2 border-black rounded transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
-  <span
-    className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
-    style={{
-      backgroundImage:
-        "url('https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9')",
-    }}
-  >
-    {/**Una disculpa por utilizar estilos en linea, sino no es posible este efecto :)*/}
-  </span>
   <span className="absolute inset-0 border-t-2 border-l-2 border-slate-100 pointer-events-none z-[2]"></span>
   <span className="absolute inset-0 border-b-2 border-r-2 border-gray-700 pointer-events-none z-[2]"></span>
   <span className="relative z-[3]">Botón</span>
 </button>`,
-    code: (
-      <button className="relative px-16 py-4 text-slate-100 font-semibold bg-gray-400 border-2 border-black rounded transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
-        <span
-          className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
-          style={{
-            backgroundImage:
-              "url('https://imgs.search.brave.com/vrPQsZzIuUOW5gVMSPXa7Sq79OqPiq0ASGqPGwLlX4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTcx/NTA2OTQ4NC9lcy9m/b3RvL2JsYWNrLXRl/eHR1cmUtZm9yLWJh/Y2tncm91bmQuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRn/dEh2T0tfUUd0Q254/ZXlvN3p5VjdkQ21a/NDhzdjRNcGJBalJn/RHVmYlE9')",
-          }}
-        >
-          {/**Una disculpa por utilizar estilos en linea, sino no es posible este efecto :)*/}
-        </span>
-        <span className="absolute inset-0 border-t-2 border-l-2 border-slate-100 pointer-events-none z-[2]"></span>
-        <span className="absolute inset-0 border-b-2 border-r-2 border-gray-700 pointer-events-none z-[2]"></span>
-        <span className="relative z-[3]">Botón</span>
-      </button>
-    ),
   },
   {
     id: 13,
     categoria: "Interactivo",
     tamaño: "Mediano",
     estilo: "Redondeado",
-    htmlCode: `  <!-- Necesitaras instalar react-icons -->
-  <!-- import { FaTrash } from "react-icons/fa"; -->
-
-<button class="btn">
-  <FaTrash />
+    htmlCode: `<button class="btn">
   <span>Eliminar</span>
 </button>`,
     cssCode: `.btn {
@@ -612,36 +503,19 @@ const buttons = [
   align-items: center;
   padding: 0.5rem;
   color: #f1f5f9;
-  background-color: rgb(0 0 0 / 0.1);
-  backdrop-filter: blur(8px);
+  background-color: #020617;
   border: solid 2px transparent;
   border-radius: 0.75rem;
   transition: 300ms ease-in-out;
-}
-
-.btn > *:not(:last-child) {
-  margin-right: 0.5rem;
 }
 
 .btn:hover {
   color: #dc2626;
   border: solid 2px #dc2626;
 }`,
-    tailwindCode: `    {/** Necesitaras instalar react-icons */}
-    {/** import { FaTrash } from "react-icons/fa"; */}
-
-<button className="flex justify-center items-center p-2 space-x-2 text-slate-100 bg-black/10 backdrop-blur border-2 border-transparent rounded-xl hover:text-red-600 hover:border-red-600 transition duration-300 ease-in-out">
-  <FaTrash />
+    tailwindCode: `<button className="flex justify-center items-center p-2 text-slate-100 bg-slate-950 border-2 border-transparent rounded-xl hover:text-red-600 hover:border-red-600 transition duration-300 ease-in-out">
   <span>Eliminar</span>
 </button>`,
-    code: (
-      <>
-        <button className="flex justify-center items-center p-2 space-x-2 text-slate-100 bg-black/10 backdrop-blur border-2 border-transparent rounded-xl hover:text-red-600 hover:border-red-600 transition duration-300 ease-in-out">
-          <FaTrash />
-          <span>Eliminar</span>
-        </button>
-      </>
-    ),
   },
   {
     id: 14,
@@ -649,7 +523,6 @@ const buttons = [
     tamaño: "Pequeño",
     estilo: "Redondeado",
     htmlCode: `<button class="btn">
-  <span class="bg"></span>
   <span class="border"></span>
   <span class="txt">Botón</span>
  </button>`,
@@ -684,17 +557,6 @@ const buttons = [
   transform: scale(0.9);
 }
 
-.bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("https://i.ibb.co/tbFn3p9/pointspattern.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.35;
-  z-index: 1;
-}
-
 .border {
   position: absolute;
   inset: 0;
@@ -715,35 +577,9 @@ const buttons = [
   bg-slate-300 bg-clip-padding after:absolute after:content-[''] after:bg-slate-400 after:inset-x-0 after:bottom-0 after:h-1/2 after:rounded-b-md
   hover:scale-95 active:scale-90 transition-transform duration-150 ease-in-out"
 >
-  <span
-    className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
-    style={{
-      backgroundImage:
-        "url('https://i.ibb.co/tbFn3p9/pointspattern.png')",
-    }}
-  >
-    {/**Una disculpa por utilizar estilos en linea, sino no es posible este efecto :)*/}
-  </span>
   <span className="absolute inset-0 border-t-2 border-t-slate-100 rounded-t-md z-[2]"></span>
   <span className="relative z-[2] text-black font-bold">Botón</span>
 </button>`,
-    code: (
-      <button
-        className="relative px-6 py-3 rounded-md border-2 border-black
-        bg-slate-300 bg-clip-padding after:absolute after:content-[''] after:bg-slate-400 after:inset-x-0 after:bottom-0 after:h-1/2 after:rounded-b-md
-        hover:scale-95 active:scale-90 transition-transform duration-150 ease-in-out"
-      >
-        <span
-          className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-35 z-[1]"
-          style={{
-            backgroundImage:
-              "url('https://i.ibb.co/tbFn3p9/pointspattern.png')",
-          }}
-        ></span>
-        <span className="absolute inset-0 border-t-2 border-t-slate-100 rounded-t-md z-[2]"></span>
-        <span className="relative z-[2] text-black font-bold">Botón</span>
-      </button>
-    ),
   },
   {
     id: 15,
@@ -804,15 +640,6 @@ const buttons = [
   <span className="relative font-semibold text-teal-400">Botón</span>
   <span className="absolute inset-0 border border-teal-300 rounded-2xl blur-sm"></span>
 </button>`,
-    code: (
-      <button className="relative px-8 py-2 bg-slate-900 rounded-2xl border-[.5px] border-teal-300 shadow shadow-teal-300 transition-transform transform hover:scale-105 active:scale-95">
-        <span className="absolute inset-0 font-semibold text-teal-300 blur-sm flex items-center justify-center">
-          Botón
-        </span>
-        <span className="relative font-semibold text-teal-400">Botón</span>
-        <span className="absolute inset-0 border border-teal-300 rounded-2xl blur-sm"></span>
-      </button>
-    ),
   },
 ];
 

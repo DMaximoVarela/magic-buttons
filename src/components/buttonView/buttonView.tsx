@@ -1,6 +1,7 @@
 import { FaRegMoon } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 import buttons from "../buttons/buttons";
+import Button from "../button/button";
 import MiniCopyComponent from "../miniCopyComponent/miniCopyComponent";
 
 interface content {
@@ -12,7 +13,7 @@ interface content {
 const ButtonView: React.FC<content> = ({ idBtn, darkMode, setDarkMode }) => {
   return (
     <div>
-      {buttons[idBtn].code}
+      <Button codeString={buttons[idBtn].tailwindCode} />
       <ul className="absolute bottom-0 right-0 m-4 flex gap-4">
         <li
           onClick={() => {
