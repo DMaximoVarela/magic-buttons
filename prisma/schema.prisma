@@ -10,7 +10,7 @@ datasource db {
 model Button {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   categoria  String
-  tamaño String
+  tamano String
   estilo String
   htmlCode String
   cssCode String
