@@ -26,6 +26,7 @@ const CodeComponent: React.FC<content> = ({ btnId, typeCode }) => {
   };
 
   const numberedCode = addLineNumbers(buttonCode(typeCode));
+  // NOTA DE MEJORA: HACER QUE EL NUMERO NO SE PUEDA SELECCIONAR COMO TEXTO!
 
   return (
     <div className="relative flex flex-col self-center justify-center items-center w-[90%] sm:w-[45%] h-[100%] border-[.5px] rounded-2xl bg-[#202020]">
