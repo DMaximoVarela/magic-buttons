@@ -8,7 +8,9 @@ interface Params {
 
 export async function GET(request: Request, { params }: Params) {
   try {
-    const button = await prisma.button.findFirst({ where: { id: params.id } });
+    const button = await prisma.button.findFirst({
+      where: { id: Number(params.id) },
+    });
 
     if (!button) {
       return NextResponse.json(
@@ -24,6 +26,7 @@ export async function GET(request: Request, { params }: Params) {
   }
 }
 
+// DELETE este no sera utilizado, solo esta por si acaso.
 export async function DELETE(request: Request, { params }: Params) {
   try {
     const deletedButton = await prisma.button.delete({
