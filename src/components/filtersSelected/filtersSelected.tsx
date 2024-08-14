@@ -14,7 +14,7 @@ const FiltersSelected = () => {
   const isAnyFilterApplied =
     filters.size !== "Tamaño" ||
     filters.style !== "Estilo" ||
-    filters.filters.length > 0;
+    filters.category !== "null";
 
   return (
     <div>
@@ -31,16 +31,12 @@ const FiltersSelected = () => {
             <span>X</span>
           </li>
         )}
-        {filters.filters.map((filter, index) => (
-          <li
-            key={index}
-            className={stylesListItems}
-            onClick={() => removeFilterSelected(filter)}
-          >
-            <span>{filter}</span>
+        {filters.category !== "null" && (
+          <li className={stylesListItems} onClick={removeFilterSelected}>
+            <span>{filters.category}</span>
             <span>X</span>
           </li>
-        ))}
+        )}
         {isAnyFilterApplied && (
           <li
             className="flex justify-between items-center w-fit px-2 border border-gray-300 rounded-2xl text-gray-300 text-[14px] sm:text-[16px] lg:text-xl font-semibold hover:text-[#4A90E2] cursor-pointer transition duration-300 ease-in-out transform "

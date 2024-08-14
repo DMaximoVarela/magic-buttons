@@ -13,7 +13,20 @@ const Cards = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await getButtons();
+      let category = "";
+      let tamano = "";
+      let estilo = "";
+      if (filters.category !== "null") {
+        category = filters.category;
+      }
+      if (filters.size !== "Tamaño") {
+        tamano = filters.size;
+      }
+      if (filters.style !== "Estilo") {
+        estilo = filters.style;
+      }
+
+      await getButtons(category, tamano, estilo);
     };
 
     fetchData();

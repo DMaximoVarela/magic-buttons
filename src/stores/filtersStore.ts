@@ -3,7 +3,7 @@ import { create } from "zustand";
 interface Filters {
   size: "Tamaño" | "Pequeño" | "Mediano" | "Grande";
   style: "Estilo" | "Plano" | "Elevado" | "Redondeado" | "3D" | "Gradiente";
-  filters: string[];
+  category: "null" | "Hover" | "Animación" | "Interactivo";
 }
 
 interface State {
@@ -15,17 +15,19 @@ interface Actions {
   filterStyle: (
     filter: "Estilo" | "Plano" | "Elevado" | "Redondeado" | "3D" | "Gradiente"
   ) => void;
-  filterSelected: (filter: string) => void;
+  filterSelected: (
+    filter: "null" | "Hover" | "Animación" | "Interactivo"
+  ) => void;
   removeFilterSize: () => void;
   removeFilterStyle: () => void;
-  removeFilterSelected: (filter: string) => void;
+  removeFilterSelected: () => void;
   resetFilters: () => void;
 }
 
 const initialState: Filters = {
   size: "Tamaño",
   style: "Estilo",
-  filters: [],
+  category: "null",
 };
 
 const useFiltersStore = create<State & Actions>((set) => ({
@@ -53,9 +55,7 @@ const useFiltersStore = create<State & Actions>((set) => ({
     set((state) => ({
       filters: {
         ...state.filters,
-        filters: state.filters.filters.includes(filter)
-          ? state.filters.filters
-          : [...state.filters.filters, filter],
+        category: filter,
       },
     }));
   },
@@ -78,11 +78,11 @@ const useFiltersStore = create<State & Actions>((set) => ({
     }));
   },
 
-  removeFilterSelected: (filter) => {
+  removeFilterSelected: () => {
     set((state) => ({
       filters: {
         ...state.filters,
-        filters: state.filters.filters.filter((f) => f !== filter),
+        category: "null",
       },
     }));
   },

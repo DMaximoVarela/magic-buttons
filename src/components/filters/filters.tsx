@@ -12,6 +12,7 @@ const Filters = () => {
     "3D",
     "Gradiente",
   ];
+  const categoria = "";
   const filters = [
     { name: "Hover", icon: FaHandPointer },
     { name: "Animación", icon: FaMagic },
@@ -80,7 +81,7 @@ const Filters = () => {
       <div className="w-full flex items-center justify-between">
         {filters.map((filter, idx) => {
           const Icon = filter.icon;
-          const isSelected = filtersState.filters.includes(filter.name);
+          const isSelected = filtersState.category == filter.name;
           return (
             <div
               key={idx}
@@ -91,7 +92,7 @@ const Filters = () => {
               }  hover:text-[#4A90E2] hover:border-b-[#4A90E2] cursor-pointer transition duration-300 ease-in-out transform`}
               onClick={() => {
                 isSelected
-                  ? removeFilterSelected(filter.name)
+                  ? removeFilterSelected()
                   : handleFilterSelected(filter.name);
               }}
             >
