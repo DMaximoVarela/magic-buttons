@@ -1,27 +1,51 @@
 "use client";
 import { IoIosSearch } from "react-icons/io";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useButtonsStore from "@/stores/buttonsStore";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
 
+  const getButtonById = useButtonsStore((state) => state.getButtonById);
+  const button = useButtonsStore((state) => state.button);
+
   const handleInput = (e) => {
     const value = e.target.value;
-
-    if (/^\d+$/.test(value) && parseInt(value) > 0) {
+    if (value === "" || (/^\d+$/.test(value) && parseInt(value) > 0)) {
       setButtonId(value);
     } else {
-      window.alert("NO SE PERMITEN LETRAS NI NUMEROS NEGATIVOS!");
+      window.alert("NO SE PERMITEN LETRAS NI NÚMEROS NEGATIVOS!");
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleButtonResult = (button: any, buttonId: string) => {
+    if (button) {
+      alert("MODAL MOSTRANDO EL BOTÓN!");
+    } else {
+      alert(`El botón con el id ${buttonId} no ha sido encontrado...`);
+    }
+  };
+
+  const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      console.log(buttonId);
+      if (buttonId) {
+        await getButtonById(buttonId);
+        handleButtonResult(button, buttonId);
+      } else {
+        window.alert("INGRESA UN NÚMERO!");
+      }
       setButtonId("");
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getButtonById(buttonId);
+    };
+
+    fetchData();
+  }, [buttonId]);
 
   return (
     <div className="relative w-[460px] 2xl:w-[520px] h-[50px] 2xl:h-[64px]">

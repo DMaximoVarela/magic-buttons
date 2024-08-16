@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import Button from "@/components/button/button";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -15,7 +16,9 @@ interface Button {
 
 interface State {
   buttons: Button[];
+  button: Button | null;
   getButtons: (categoria?: string, tamano?: string, estilo?: string) => void;
+  getButtonById: (id: string) => void;
 }
 
 const getButtons = async (
@@ -44,14 +47,36 @@ const getButtons = async (
   }
 };
 
+const getButtonById = async (id: string) => {
+  try {
+    let url = `${API_URL}buttons?id=${id}`;
+
+    const response = await axios.get(url);
+
+    return response.data[0];
+  } catch (error) {
+    console.error("Error al obtener el botón:", error);
+    throw error;
+  }
+};
+
 const useButtonsStore = create<State>((set) => ({
   buttons: [],
+  button: null,
   getButtons: async (categoria?: string, tamano?: string, estilo?: string) => {
     try {
       const buttonsFiltered = await getButtons(categoria, tamano, estilo);
       set({ buttons: buttonsFiltered });
     } catch (error) {
       console.error("Error en el store:", error);
+    }
+  },
+  getButtonById: async (id: string) => {
+    try {
+      const button = await getButtonById(id);
+      set({ button: button });
+    } catch (error) {
+      console.error("Error en la store:", error);
     }
   },
 }));
