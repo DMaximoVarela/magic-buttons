@@ -1,5 +1,3 @@
-import { FaTrash } from "react-icons/fa";
-
 const buttons = [
   { id: 0 }, // Esto es solo para ayudar con que el index del array comience en 1, y no en 0
   {
