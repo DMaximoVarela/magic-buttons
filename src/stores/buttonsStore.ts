@@ -17,8 +17,10 @@ interface Button {
 interface State {
   buttons: Button[];
   button: Button | null;
+  randomButton: Button | null;
   getButtons: (categoria?: string, tamano?: string, estilo?: string) => void;
   getButtonById: (id: string) => void;
+  getRandomButton: (id: string) => void;
 }
 
 const getButtons = async (
@@ -63,6 +65,7 @@ const getButtonById = async (id: string) => {
 const useButtonsStore = create<State>((set) => ({
   buttons: [],
   button: null,
+  randomButton: null,
   getButtons: async (categoria?: string, tamano?: string, estilo?: string) => {
     try {
       const buttonsFiltered = await getButtons(categoria, tamano, estilo);
@@ -75,6 +78,14 @@ const useButtonsStore = create<State>((set) => ({
     try {
       const button = await getButtonById(id);
       set({ button: button });
+    } catch (error) {
+      console.error("Error en la store:", error);
+    }
+  },
+  getRandomButton: async (id) => {
+    try {
+      const button = await getButtonById(id);
+      set({ randomButton: button });
     } catch (error) {
       console.error("Error en la store:", error);
     }
