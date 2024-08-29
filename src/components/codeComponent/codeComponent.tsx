@@ -1,6 +1,6 @@
 import CopyComponent from "../copyComponent/copyComponent";
-import buttons from "../buttons/buttons";
 import style from "./codeComponent.module.css";
+import useButtonsStore from "@/stores/buttonsStore";
 
 interface content {
   btnId: number;
@@ -8,13 +8,17 @@ interface content {
 }
 
 const CodeComponent: React.FC<content> = ({ btnId, typeCode }) => {
+  const buttons = useButtonsStore((state) => state.buttons);
+
+  const button = buttons.filter((btn) => btn.id === btnId);
+
   const buttonCode = (typeCode: string) => {
     if (typeCode === "html") {
-      return buttons[btnId].htmlCode;
+      return button[0].htmlCode;
     } else if (typeCode === "css") {
-      return buttons[btnId].cssCode;
+      return button[0].cssCode;
     } else {
-      return buttons[btnId].tailwindCode;
+      return button[0].tailwindCode;
     }
   };
 

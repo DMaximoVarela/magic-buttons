@@ -3,9 +3,11 @@
 import Filters from "@/components/filters/filters";
 import FiltersSelected from "@/components/filtersSelected/filtersSelected";
 import Cards from "@/components/cards/cards";
-import buttons from "@/components/buttons/buttons";
+import useButtonsStore from "@/stores/buttonsStore";
 
 const Page = () => {
+  const buttons = useButtonsStore((state) => state.buttons);
+
   return (
     <div className="relative flex flex-col w-[100vw] mt-[52px] sm:mt-[76px] lg:mt-[104px] 2xl:mt-[124px] px-6">
       <div className="absolute top-0 left-0 mx-6 flex flex-col text-start text-white">
@@ -22,7 +24,7 @@ const Page = () => {
         <div className="absolute p-6 w-full h-fit bg-[#202020]">
           <ul className="flex justify-between items-center">
             <li className="text-[20px] sm:text-[24px] lg:text-[32px] text-white">
-              {`${buttons.length - 1} Botones`}
+              {`${buttons.length} Botones`}
             </li>
             <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
               Página 1 de 16
