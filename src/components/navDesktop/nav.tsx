@@ -104,7 +104,7 @@ const Nav = () => {
           <FaWandMagicSparkles />
         </li>
         <Link
-          href={"https://github.com/DMaximoVarela"}
+          href={"https://github.com/DMaximoVarela/magic-buttons"}
           target="blank"
           rel="noopener"
         >
