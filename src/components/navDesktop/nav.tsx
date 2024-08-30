@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Searchbar from "../searchbar/searchbar";
 import { FaWandMagicSparkles } from "react-icons/fa6";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import style from "./Nav.module.css";
 import useButtonsStore from "@/stores/buttonsStore";
 
@@ -92,15 +92,6 @@ const Nav = () => {
           <span>Toque Mágico</span>
           <FaWandMagicSparkles />
         </li>
-        <Link
-          href={"https://www.linkedin.com/in/maximo-varela/"}
-          target="blank"
-          rel="noopener"
-        >
-          <li className="text-[24px] xl:text-[32px] hover:text-gray-200 cursor-pointer transition duration-500 ease-in-out transform">
-            <FaLinkedin />
-          </li>
-        </Link>
         <Link
           href={"https://github.com/DMaximoVarela"}
           target="blank"
