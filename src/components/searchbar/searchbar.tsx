@@ -63,7 +63,12 @@ const Searchbar = () => {
         value={buttonId}
         placeholder="Ingresa el número del botón..."
       />
-      <Modal modal={modal} setModal={setModal} btnId={button?.id || 1} />
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        btnId={button?.id || 1}
+        active={true}
+      />
     </div>
   );
 };

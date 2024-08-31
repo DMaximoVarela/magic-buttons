@@ -8,9 +8,10 @@ interface content {
   modal: boolean;
   setModal: (modal: boolean) => void;
   btnId: number;
+  active?: boolean;
 }
 
-const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
+const Modal: React.FC<content> = ({ modal, setModal, btnId, active }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [viewActive, setViewActive] = useState("button");
 
@@ -23,6 +24,10 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId }) => {
               <span
                 onClick={() => {
                   setModal(!modal);
+                  if (active) {
+                    setViewActive("button");
+                    setDarkMode(true);
+                  }
                 }}
                 className="flex justify-center items-center w-8 lg:w-12 h-8 lg:h-12 bg-[#303030] hover:bg-[#272727] rounded-lg text-[16px] lg:text-[24px] text-slate-100 cursor-pointer"
               >

@@ -77,7 +77,7 @@ const NavMobile = () => {
         </li>
       </ul>
 
-      <Modal modal={modal} setModal={setModal} btnId={buttonId} />
+      <Modal modal={modal} setModal={setModal} btnId={buttonId} active={true} />
     </div>
   );
 };
