@@ -2,9 +2,11 @@
 import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
+import Modal from "../modal/modal";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
+  const [modal, setModal] = useState(false);
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
   const button = useButtonsStore((state) => state.button);
@@ -18,9 +20,9 @@ const Searchbar = () => {
     }
   };
 
-  const handleButtonResult = (button: any, buttonId: string) => {
+  const handleButtonResult = (button: any) => {
     if (button) {
-      alert("MODAL MOSTRANDO EL BOTÓN!");
+      setModal(true);
     } else {
       alert(`El botón con el id ${buttonId} no ha sido encontrado...`);
     }
@@ -31,17 +33,20 @@ const Searchbar = () => {
       e.preventDefault();
       if (buttonId) {
         await getButtonById(buttonId);
-        handleButtonResult(button, buttonId);
+        handleButtonResult(button);
       } else {
         window.alert("INGRESA UN NÚMERO!");
       }
+      e.target.blur();
       setButtonId("");
     }
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      await getButtonById(buttonId);
+      if (buttonId) {
+        await getButtonById(buttonId);
+      }
     };
 
     fetchData();
@@ -58,6 +63,7 @@ const Searchbar = () => {
         value={buttonId}
         placeholder="Ingresa el número del botón..."
       />
+      <Modal modal={modal} setModal={setModal} btnId={button?.id || 1} />
     </div>
   );
 };
