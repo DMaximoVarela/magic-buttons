@@ -4,16 +4,18 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosSearch } from "react-icons/io";
-import { FaWandMagicSparkles } from "react-icons/fa6";
 import { IoLanguageSharp } from "react-icons/io5";
+import { FaArrowLeft } from "react-icons/fa";
 import { TiArrowSortedDown } from "react-icons/ti";
 import useButtonsStore from "@/stores/buttonsStore";
 import Modal from "../modal/modal";
 import MagicTouchButton from "../magicTouchButton/magicTouchButton";
+import Searchbar from "../searchbar/searchbar";
 
 const NavMobile = () => {
   const [count, setCount] = useState(0);
   const [modal, setModal] = useState(false);
+  const [searchbarActive, setSearchbarActive] = useState(false);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -46,8 +48,34 @@ const NavMobile = () => {
 
   return (
     <div className="w-full h-[48px] sm:h-[72px] top-0 left-0 absolute flex justify-between items-center p-4 z-50 shadow-md backdrop-blur border-b border-b-[#bdc3c780] lg:hidden">
-      <IoIosSearch className="text-[24px] sm:text-[28px]" />
-      <div className="absolute top-0 left-0 w-full z-[0] h-[48px] sm:h-[72px] flex justify-center items-center">
+      <IoIosSearch
+        className={`text-[24px] sm:text-[28px] h-[32px] sm:h-[36px] p-1 w-auto ${
+          searchbarActive ? "hidden" : "flex"
+        } justify-center items-center z-[1] cursor-pointer hover:bg-[#101010bf] rounded-full`}
+        onClick={() => {
+          setSearchbarActive(true);
+        }}
+      />
+      <FaArrowLeft
+        className={`text-[24px] sm:text-[28px] h-[32px] sm:h-[36px] p-1 w-auto ${
+          searchbarActive ? "flex" : "hidden"
+        } justify-center items-center z-[1] cursor-pointer hover:bg-[#101010bf] rounded-full`}
+        onClick={() => {
+          setSearchbarActive(false);
+        }}
+      />
+      <div
+        className={`absolute top-0 left-0 w-full z-[0] h-[48px] sm:h-[72px] ${
+          searchbarActive ? "flex" : "hidden"
+        } justify-center items-center`}
+      >
+        <Searchbar />
+      </div>
+      <div
+        className={`absolute top-0 left-0 w-full z-[0] h-[48px] sm:h-[72px] ${
+          searchbarActive ? "hidden" : "flex"
+        } justify-center items-center`}
+      >
         <Link href={"/"} className="w-fit">
           <Image
             src="/images/logo.png"
@@ -59,7 +87,11 @@ const NavMobile = () => {
         </Link>
       </div>
       <ul className="list-none flex justify-center items-center text-[20px] sm:text-[24px] gap-[2px] sm:gap-2">
-        <li className="relative inline-block w-fit px-2 xsm:text-[14px] sm:text-[16px] md:text-[22px] font-medium text-[#C7C7C7] cursor-pointer">
+        <li
+          className={`relative inline-block w-fit px-2 xsm:text-[14px] sm:text-[16px] md:text-[22px] font-medium text-[#C7C7C7] cursor-pointer ${
+            searchbarActive ? "hidden" : ""
+          } `}
+        >
           <IoLanguageSharp className="absolute top-1.5 left-3 pl-1" />
           <select className="appearance-none w-full xsm:px-5 sm:px-6 md:px-8 bg-transparent border border-[#C7C7C7] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4a90e2] cursor-pointer">
             <option value="es" className="bg-[#191919]">
@@ -71,7 +103,7 @@ const NavMobile = () => {
           </select>
           <TiArrowSortedDown className="absolute top-1.5 right-3 pr-1 pointer-events-none" />
         </li>
-        <li className="px-1">|</li>
+        <li className={`px-1 ${searchbarActive ? "hidden" : ""}`}>|</li>
         <li>
           <MagicTouchButton onClick={onClick} />
         </li>
