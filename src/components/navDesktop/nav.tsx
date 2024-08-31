@@ -12,12 +12,15 @@ import useButtonsStore from "@/stores/buttonsStore";
 import { TiArrowSortedDown } from "react-icons/ti";
 import Modal from "../modal/modal";
 import MagicTouchButton from "../magicTouchButton/magicTouchButton";
+import Toast from "../toast/toast";
 
 const Nav = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [count, setCount] = useState(0);
   const [modal, setModal] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [message, setMessage] = useState("");
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -46,7 +49,8 @@ const Nav = () => {
     if (button) {
       setModal(true);
     } else {
-      alert(`Se produjo un error desconocido 💀`);
+      setMessage(`Se produjo un error desconocido 💀`);
+      setToast(true);
     }
   };
 
@@ -116,6 +120,7 @@ const Nav = () => {
       </ul>
 
       <Modal modal={modal} setModal={setModal} btnId={buttonId} active={true} />
+      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };
