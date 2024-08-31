@@ -1,9 +1,19 @@
+"use client";
+
 import style from "./page.module.css";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import { useEffect } from "react";
+import useButtonsStore from "@/stores/buttonsStore";
 // import AuxiliarViewButton from "@/components/auxiliarViewButton/auxiliarViewButton";
 
 export default function LandingPage() {
+  const getButtons = useButtonsStore((state) => state.getButtons);
+
+  useEffect(() => {
+    getButtons();
+  }, []);
+
   return (
     <main className="flex flex-col justify-center items-center">
       <div className={style.bg}></div>
