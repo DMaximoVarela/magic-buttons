@@ -11,6 +11,7 @@ import style from "./Nav.module.css";
 import useButtonsStore from "@/stores/buttonsStore";
 import { TiArrowSortedDown } from "react-icons/ti";
 import Modal from "../modal/modal";
+import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 
 const Nav = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -100,12 +101,8 @@ const Nav = () => {
           <TiArrowSortedDown className="absolute top-1.5 right-3 pr-1 pointer-events-none" />
         </li>
         <li>|</li>
-        <li
-          className="h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[24px] 2xl:text-[32px] font-medium px-4 space-x-1 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform"
-          onClick={onClick}
-        >
-          <span>Toque Mágico</span>
-          <FaWandMagicSparkles />
+        <li>
+          <MagicTouchButton onClick={onClick}></MagicTouchButton>
         </li>
         <Link
           href={"https://github.com/DMaximoVarela/magic-buttons"}

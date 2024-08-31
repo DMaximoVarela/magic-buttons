@@ -9,6 +9,7 @@ import { IoLanguageSharp } from "react-icons/io5";
 import { TiArrowSortedDown } from "react-icons/ti";
 import useButtonsStore from "@/stores/buttonsStore";
 import Modal from "../modal/modal";
+import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 
 const NavMobile = () => {
   const [count, setCount] = useState(0);
@@ -71,11 +72,8 @@ const NavMobile = () => {
           <TiArrowSortedDown className="absolute top-1.5 right-3 pr-1 pointer-events-none" />
         </li>
         <li className="px-1">|</li>
-        <li
-          className="h-[22px] sm:h-[28px] flex justify-center z-[1] items-center space-x-1 px-2 text-[#4A90E2] border-[#4A90E2] border rounded-xl bg-[#1456a44d] cursor-pointer hover:bg-[#1456a499]"
-          onClick={onClick}
-        >
-          <FaWandMagicSparkles />
+        <li>
+          <MagicTouchButton onClick={onClick} />
         </li>
       </ul>
 
