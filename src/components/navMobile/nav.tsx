@@ -11,11 +11,14 @@ import useButtonsStore from "@/stores/buttonsStore";
 import Modal from "../modal/modal";
 import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 import Searchbar from "../searchbar/searchbar";
+import Toast from "../toast/toast";
 
 const NavMobile = () => {
   const [count, setCount] = useState(0);
   const [modal, setModal] = useState(false);
   const [searchbarActive, setSearchbarActive] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [message, setMessage] = useState("");
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -32,7 +35,8 @@ const NavMobile = () => {
     if (button) {
       setModal(true);
     } else {
-      alert(`Se produjo un error desconocido 💀`);
+      setMessage(`Se produjo un error desconocido 💀`);
+      setToast(true);
     }
   };
 
@@ -47,7 +51,7 @@ const NavMobile = () => {
   }, [count]);
 
   return (
-    <div className="w-full h-[48px] sm:h-[72px] top-0 left-0 absolute flex justify-between items-center p-4 z-50 shadow-md backdrop-blur border-b border-b-[#bdc3c780] lg:hidden">
+    <div className="fixed w-full h-[48px] sm:h-[72px] top-0 left-0 flex justify-between items-center p-4 z-50 shadow-md backdrop-blur border-b border-b-[#bdc3c780] lg:hidden">
       <IoIosSearch
         className={`text-[24px] sm:text-[28px] h-[32px] sm:h-[36px] p-1 w-auto ${
           searchbarActive ? "hidden" : "flex"
@@ -110,6 +114,7 @@ const NavMobile = () => {
       </ul>
 
       <Modal modal={modal} setModal={setModal} btnId={buttonId} active={true} />
+      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };

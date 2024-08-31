@@ -3,10 +3,13 @@ import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
 import Modal from "../modal/modal";
+import Toast from "../toast/toast";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
   const [modal, setModal] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [message, setMessage] = useState("");
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
   const button = useButtonsStore((state) => state.button);
@@ -16,7 +19,8 @@ const Searchbar = () => {
     if (value === "" || (/^\d+$/.test(value) && parseInt(value) > 0)) {
       setButtonId(value);
     } else {
-      window.alert("NO SE PERMITEN LETRAS NI NÚMEROS NEGATIVOS!");
+      setMessage("No se permiten letras, ni números negativos");
+      setToast(true);
     }
   };
 
@@ -24,7 +28,8 @@ const Searchbar = () => {
     if (button) {
       setModal(true);
     } else {
-      alert(`El botón con el id ${buttonId} no ha sido encontrado...`);
+      setMessage(`El botón con el id ${buttonId} no ha sido encontrado...`);
+      setToast(true);
     }
   };
 
@@ -35,7 +40,8 @@ const Searchbar = () => {
         await getButtonById(buttonId);
         handleButtonResult(button);
       } else {
-        window.alert("INGRESA UN NÚMERO!");
+        setMessage("Por favor ingrese un número");
+        setToast(true);
       }
       e.target.blur();
       setButtonId("");
@@ -69,6 +75,7 @@ const Searchbar = () => {
         btnId={button?.id || 1}
         active={true}
       />
+      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };

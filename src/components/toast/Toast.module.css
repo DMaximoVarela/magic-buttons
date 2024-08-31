@@ -1,0 +1,42 @@
+.toastContainer {
+  animation-name: show-toast;
+  animation-duration: 6s;
+  opacity: 0;
+  transform: scale(0.8);
+
+  background-color: #191919;
+  color: white;
+  bottom: 0rem;
+  position: absolute;
+
+  border: solid 1px #c7c7c7;
+  border-radius: 8px;
+  width: fit-content;
+  height: fit-content;
+
+  box-shadow: 1px 1px 7px 2px #00000012;
+}
+
+.message {
+  font-size: 18px;
+  color: #f7eadd;
+  padding: 4px;
+}
+
+@keyframes show-toast {
+  5% {
+    opacity: 100%;
+    transform: translateY(-4vh);
+  }
+
+  90% {
+    opacity: 100%;
+    transform: translateY(-4vh);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-4vh);
+    transform: scale(0.8);
+  }
+}
