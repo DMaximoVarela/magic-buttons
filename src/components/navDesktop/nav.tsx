@@ -10,14 +10,18 @@ import { IoLanguageSharp } from "react-icons/io5";
 import style from "./Nav.module.css";
 import useButtonsStore from "@/stores/buttonsStore";
 import { TiArrowSortedDown } from "react-icons/ti";
+import Modal from "../modal/modal";
 
 const Nav = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [count, setCount] = useState(0);
+  const [modal, setModal] = useState(false);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
+
+  let buttonId = Number(button?.id);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -39,14 +43,14 @@ const Nav = () => {
     setCount(count + 1);
 
     if (button) {
-      alert(`MODAL MOSTRANDO BOTÓN`);
+      setModal(true);
     } else {
       alert(`Se produjo un error desconocido 💀`);
     }
   };
 
   useEffect(() => {
-    const randomNumber = generateRandomNumber(1, 15);
+    const randomNumber = generateRandomNumber(1, 6);
 
     const fetchData = async () => {
       await getRandomButton(randomNumber.toString());
@@ -56,7 +60,7 @@ const Nav = () => {
   }, [count]);
 
   return (
-    <div className="w-full h-[100px] 2xl:h-[120px] top-0 left-0 absolute lg:flex justify-between items-center p-4 xl:p-8 z-10 shadow-lg backdrop-blur border-b border-b-[#bdc3c780] hidden">
+    <div className="w-full h-[100px] 2xl:h-[120px] top-0 left-0 absolute lg:flex justify-between items-center p-4 xl:p-8 z-50 shadow-lg backdrop-blur border-b border-b-[#bdc3c780] hidden">
       <ul className="list-none flex justify-stretch items-center gap-4 xl:gap-10">
         <Link href={"/"}>
           <li>
@@ -113,6 +117,8 @@ const Nav = () => {
           </li>
         </Link>
       </ul>
+
+      <Modal modal={modal} setModal={setModal} btnId={buttonId} />
     </div>
   );
 };
