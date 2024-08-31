@@ -47,7 +47,7 @@ const NavMobile = () => {
   }, [count]);
 
   return (
-    <div className="w-full h-[48px] sm:h-[72px] top-0 left-0 absolute flex justify-between items-center p-4 z-50 shadow-md backdrop-blur border-b border-b-[#bdc3c780] lg:hidden">
+    <div className="fixed w-full h-[48px] sm:h-[72px] top-0 left-0 flex justify-between items-center p-4 z-50 shadow-md backdrop-blur border-b border-b-[#bdc3c780] lg:hidden">
       <IoIosSearch
         className={`text-[24px] sm:text-[28px] h-[32px] sm:h-[36px] p-1 w-auto ${
           searchbarActive ? "hidden" : "flex"
