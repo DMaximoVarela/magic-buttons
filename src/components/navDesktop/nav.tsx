@@ -4,23 +4,25 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Searchbar from "../searchbar/searchbar";
-import { FaWandMagicSparkles } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { IoLanguageSharp } from "react-icons/io5";
 import style from "./Nav.module.css";
 import useButtonsStore from "@/stores/buttonsStore";
 import { TiArrowSortedDown } from "react-icons/ti";
-import Modal from "../modal/modal";
 import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 import Toast from "../toast/toast";
+import useModalStore from "@/stores/modalStore";
 
 const Nav = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [count, setCount] = useState(0);
-  const [modal, setModal] = useState(false);
   const [toast, setToast] = useState(false);
   const [message, setMessage] = useState("");
+
+  const setModal = useModalStore((state) => state.setModal);
+  const setActive = useModalStore((state) => state.setActive);
+  const setBtnId = useModalStore((state) => state.setBtnId);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -47,7 +49,9 @@ const Nav = () => {
     setCount(count + 1);
 
     if (button) {
+      setBtnId(buttonId);
       setModal(true);
+      setActive(true);
     } else {
       setMessage(`Se produjo un error desconocido 💀`);
       setToast(true);
@@ -118,8 +122,6 @@ const Nav = () => {
           </li>
         </Link>
       </ul>
-
-      <Modal modal={modal} setModal={setModal} btnId={buttonId} active={true} />
       <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );

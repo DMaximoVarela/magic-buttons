@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/navDesktop/nav";
 import NavMobile from "@/components/navMobile/nav";
+import Modal from "@/components/modal/modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavMobile />
         <Nav />
+        <Modal />
+        {}
         {children}
       </body>
     </html>

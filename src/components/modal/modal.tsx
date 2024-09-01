@@ -3,17 +3,16 @@
 import { useState } from "react";
 import ButtonView from "../buttonView/buttonView";
 import CodeView from "../codeView/codeView";
+import useModalStore from "@/stores/modalStore";
 
-interface content {
-  modal: boolean;
-  setModal: (modal: boolean) => void;
-  btnId: number;
-  active?: boolean;
-}
-
-const Modal: React.FC<content> = ({ modal, setModal, btnId, active }) => {
+const Modal = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [viewActive, setViewActive] = useState("button");
+
+  const modal = useModalStore((state) => state.modal);
+  const setModal = useModalStore((state) => state.setModal);
+  const btnId = useModalStore((state) => state.btnId);
+  const active = useModalStore((state) => state.active);
 
   return (
     <>
@@ -70,12 +69,12 @@ const Modal: React.FC<content> = ({ modal, setModal, btnId, active }) => {
             >
               {viewActive == "button" ? (
                 <ButtonView
-                  idBtn={btnId}
+                  idBtn={btnId || 1}
                   darkMode={darkMode}
                   setDarkMode={setDarkMode}
                 />
               ) : (
-                <CodeView btnId={btnId} />
+                <CodeView btnId={btnId || 1} />
               )}
             </div>
           </div>
