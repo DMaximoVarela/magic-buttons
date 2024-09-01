@@ -2,14 +2,16 @@
 import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
-import Modal from "../modal/modal";
 import Toast from "../toast/toast";
+import useModalStore from "@/stores/modalStore";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
-  const [modal, setModal] = useState(false);
   const [toast, setToast] = useState(false);
   const [message, setMessage] = useState("");
+
+  const setModal = useModalStore((state) => state.setModal);
+  const setBtnId = useModalStore((state) => state.setBtnId);
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
   const button = useButtonsStore((state) => state.button);
@@ -26,6 +28,7 @@ const Searchbar = () => {
 
   const handleButtonResult = (button: any) => {
     if (button) {
+      setBtnId(Number(buttonId));
       setModal(true);
     } else {
       setMessage(`El botón con el id ${buttonId} no ha sido encontrado...`);
@@ -68,12 +71,6 @@ const Searchbar = () => {
         onKeyDown={handleKeyDown}
         value={buttonId}
         placeholder="Ingresa el número del botón..."
-      />
-      <Modal
-        modal={modal}
-        setModal={setModal}
-        btnId={button?.id || 1}
-        active={true}
       />
       <Toast message={message} active={toast} setActive={setToast} />
     </div>

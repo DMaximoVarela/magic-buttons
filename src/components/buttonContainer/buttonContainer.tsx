@@ -1,19 +1,16 @@
-"use client";
-
-import { useState } from "react";
 import CopyComponent from "../copyComponent/copyComponent";
-import Modal from "../modal/modal";
 import Button from "../button/button";
 import useButtonsStore from "@/stores/buttonsStore";
+import useModalStore from "@/stores/modalStore";
 
 interface button {
   btnId: number;
 }
 
 const ButtonContainer: React.FC<button> = ({ btnId }) => {
-  const [modal, setModal] = useState(false);
-
   const buttons = useButtonsStore((state) => state.buttons);
+  const setModal = useModalStore((state) => state.setModal);
+  const setBtnId = useModalStore((state) => state.setBtnId);
 
   const button = buttons.filter((btn) => btn.id === btnId);
 
@@ -28,6 +25,7 @@ const ButtonContainer: React.FC<button> = ({ btnId }) => {
           <div
             className="w-fit h-fit mb-4 cursor-pointer"
             onClick={() => {
+              setBtnId(button[0].id);
               setModal(true);
             }}
           >
@@ -37,8 +35,6 @@ const ButtonContainer: React.FC<button> = ({ btnId }) => {
           <span className="absolute bottom-0 left-0 w-[95%] mx-2 mb-1 text-[18px] sm:text-[20px] lg:text-[24px] 3xl:text-[32px] font-medium border-t border-t-[#C7C7C7]">
             Botón #{button[0].id}
           </span>
-
-          <Modal modal={modal} setModal={setModal} btnId={button[0].id} />
         </div>
       )}
     </>
