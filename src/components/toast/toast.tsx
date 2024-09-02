@@ -20,10 +20,8 @@ const Toast: React.FC<props> = ({ id, message }) => {
       deleteToast(id);
     }, 3000);
 
-    if (display === "flex") {
-      clearTimeout(timer);
-    }
-  }, [id, display]);
+    return () => clearTimeout(timer);
+  }, [id, deleteToast]);
 
   return (
     <>

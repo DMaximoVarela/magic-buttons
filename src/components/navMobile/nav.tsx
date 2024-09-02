@@ -20,8 +20,7 @@ const NavMobile = () => {
   const setModal = useModalStore((state) => state.setModal);
   const setActive = useModalStore((state) => state.setActive);
   const setBtnId = useModalStore((state) => state.setBtnId);
-  const setToast = useToastStore((state) => state.setActive);
-  const setMessage = useToastStore((state) => state.setMessage);
+  const createToast = useToastStore((state) => state.createToast);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -40,8 +39,7 @@ const NavMobile = () => {
       setModal(true);
       setActive(true);
     } else {
-      setMessage(`Se produjo un error desconocido 💀`);
-      setToast(true);
+      createToast(`Se produjo un error desconocido 💀`);
     }
   };
 
