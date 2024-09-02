@@ -32,7 +32,7 @@
 .message {
   font-size: 18px;
   color: #f7eadd;
-  padding: 4px;
+  padding: 6px;
 }
 
 @keyframes show-toast {
