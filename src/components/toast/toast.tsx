@@ -2,14 +2,13 @@
 
 import { useEffect } from "react";
 import styles from "./Toast.module.css";
+import useToastStore from "@/stores/toastStore";
 
-interface props {
-  message: string;
-  active: boolean;
-  setActive: (toast: boolean) => void;
-}
+const Toast = () => {
+  const message = useToastStore((state) => state.message);
+  const active = useToastStore((state) => state.active);
+  const setActive = useToastStore((state) => state.setActive);
 
-const Toast: React.FC<props> = ({ message, active, setActive }) => {
   useEffect(() => {
     setActive(active);
     if (active) {
