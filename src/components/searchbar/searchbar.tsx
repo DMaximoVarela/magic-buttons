@@ -2,16 +2,16 @@
 import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
-import Toast from "../toast/toast";
 import useModalStore from "@/stores/modalStore";
+import useToastStore from "@/stores/toastStore";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
-  const [toast, setToast] = useState(false);
-  const [message, setMessage] = useState("");
 
   const setModal = useModalStore((state) => state.setModal);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const setToast = useToastStore((state) => state.setActive);
+  const setMessage = useToastStore((state) => state.setMessage);
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
   const button = useButtonsStore((state) => state.button);
@@ -72,7 +72,6 @@ const Searchbar = () => {
         value={buttonId}
         placeholder="Ingresa el número del botón..."
       />
-      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };

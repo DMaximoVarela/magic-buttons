@@ -10,19 +10,19 @@ import style from "./Nav.module.css";
 import useButtonsStore from "@/stores/buttonsStore";
 import { TiArrowSortedDown } from "react-icons/ti";
 import MagicTouchButton from "../magicTouchButton/magicTouchButton";
-import Toast from "../toast/toast";
 import useModalStore from "@/stores/modalStore";
+import useToastStore from "@/stores/toastStore";
 
 const Nav = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [count, setCount] = useState(0);
-  const [toast, setToast] = useState(false);
-  const [message, setMessage] = useState("");
 
   const setModal = useModalStore((state) => state.setModal);
   const setActive = useModalStore((state) => state.setActive);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const setToast = useToastStore((state) => state.setActive);
+  const setMessage = useToastStore((state) => state.setMessage);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -122,7 +122,6 @@ const Nav = () => {
           </li>
         </Link>
       </ul>
-      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };

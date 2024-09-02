@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/navDesktop/nav";
 import NavMobile from "@/components/navMobile/nav";
 import Modal from "@/components/modal/modal";
+import Toast from "@/components/toast/toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <NavMobile />
         <Nav />
         <Modal />
+        <Toast />
         {}
         {children}
       </body>
