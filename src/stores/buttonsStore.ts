@@ -51,11 +51,11 @@ const getButtons = async (
 
 const getButtonById = async (id: string) => {
   try {
-    let url = `${API_URL}buttons?id=${id}`;
+    let url = `${API_URL}buttons/${id}`;
 
     const response = await axios.get(url);
 
-    return response.data[0];
+    return response.data;
   } catch (error) {
     console.error("Error al obtener el botón:", error);
     throw error;
