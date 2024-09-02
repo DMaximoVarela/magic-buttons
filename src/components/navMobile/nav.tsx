@@ -12,6 +12,7 @@ import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 import Searchbar from "../searchbar/searchbar";
 import useModalStore from "@/stores/modalStore";
 import useToastStore from "@/stores/toastStore";
+import LanguageSelect from "../languageSelect/languageSelect";
 
 const NavMobile = () => {
   const [count, setCount] = useState(0);
@@ -94,21 +95,8 @@ const NavMobile = () => {
         </Link>
       </div>
       <ul className="list-none flex justify-center items-center text-[20px] sm:text-[24px] gap-[2px] sm:gap-2">
-        <li
-          className={`relative inline-block w-fit px-2 xsm:text-[14px] sm:text-[16px] md:text-[22px] font-medium text-[#C7C7C7] cursor-pointer ${
-            searchbarActive ? "hidden" : ""
-          } `}
-        >
-          <IoLanguageSharp className="absolute top-1.5 left-3 pl-1" />
-          <select className="appearance-none w-full xsm:px-5 sm:px-6 md:px-8 bg-transparent border border-[#C7C7C7] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4a90e2] cursor-pointer">
-            <option value="es" className="bg-[#191919]">
-              ES
-            </option>
-            <option value="en" className="bg-[#191919]">
-              EN
-            </option>
-          </select>
-          <TiArrowSortedDown className="absolute top-1.5 right-3 pr-1 pointer-events-none" />
+        <li className={`relative ${searchbarActive ? "hidden" : ""} `}>
+          <LanguageSelect />
         </li>
         <li className={`px-1 ${searchbarActive ? "hidden" : ""}`}>|</li>
         <li>
