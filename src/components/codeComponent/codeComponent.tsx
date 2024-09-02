@@ -3,22 +3,19 @@ import style from "./codeComponent.module.css";
 import useButtonsStore from "@/stores/buttonsStore";
 
 interface content {
-  btnId: number;
   typeCode: string;
 }
 
-const CodeComponent: React.FC<content> = ({ btnId, typeCode }) => {
-  const buttons = useButtonsStore((state) => state.buttons);
-
-  const button = buttons.filter((btn) => btn.id === btnId);
+const CodeComponent: React.FC<content> = ({ typeCode }) => {
+  const button = useButtonsStore((state) => state.button);
 
   const buttonCode = (typeCode: string) => {
     if (typeCode === "html") {
-      return button[0].htmlCode;
+      return button?.htmlCode || "";
     } else if (typeCode === "css") {
-      return button[0].cssCode;
+      return button?.cssCode || "";
     } else {
-      return button[0].tailwindCode;
+      return button?.tailwindCode || "";
     }
   };
 

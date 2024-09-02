@@ -5,19 +5,16 @@ import MiniCopyComponent from "../miniCopyComponent/miniCopyComponent";
 import useButtonsStore from "@/stores/buttonsStore";
 
 interface content {
-  idBtn: number;
   darkMode: boolean;
   setDarkMode: (darkMode: boolean) => void;
 }
 
-const ButtonView: React.FC<content> = ({ idBtn, darkMode, setDarkMode }) => {
-  const buttons = useButtonsStore((state) => state.buttons);
-
-  const button = buttons.filter((btn) => btn.id === idBtn);
+const ButtonView: React.FC<content> = ({ darkMode, setDarkMode }) => {
+  const button = useButtonsStore((state) => state.button);
 
   return (
     <div>
-      <Button codeString={button[0].tailwindCode} />
+      <Button codeString={button?.tailwindCode || ""} />
       <ul className="absolute bottom-0 right-0 m-4 flex gap-4">
         <li
           onClick={() => {
@@ -28,7 +25,7 @@ const ButtonView: React.FC<content> = ({ idBtn, darkMode, setDarkMode }) => {
           {darkMode ? <FaRegMoon /> : <IoSunnyOutline />}
         </li>
         <li>
-          <MiniCopyComponent text={button[0].cssCode} />
+          <MiniCopyComponent text={button?.cssCode || ""} />
         </li>
       </ul>
     </div>

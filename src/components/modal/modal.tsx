@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonView from "../buttonView/buttonView";
 import CodeView from "../codeView/codeView";
 import useModalStore from "@/stores/modalStore";
+import useButtonsStore from "@/stores/buttonsStore";
 
 const Modal = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -13,6 +14,19 @@ const Modal = () => {
   const setModal = useModalStore((state) => state.setModal);
   const btnId = useModalStore((state) => state.btnId);
   const active = useModalStore((state) => state.active);
+
+  const button = useButtonsStore((state) => state.button);
+  const getButtonById = useButtonsStore((state) => state.getButtonById);
+
+  useEffect(() => {
+    const fetchData = () => {
+      if (btnId) {
+        getButtonById(btnId.toString());
+      }
+    };
+
+    fetchData();
+  }, [btnId]);
 
   return (
     <>
@@ -68,13 +82,9 @@ const Modal = () => {
               } `}
             >
               {viewActive == "button" ? (
-                <ButtonView
-                  idBtn={btnId || 1}
-                  darkMode={darkMode}
-                  setDarkMode={setDarkMode}
-                />
+                <ButtonView darkMode={darkMode} setDarkMode={setDarkMode} />
               ) : (
-                <CodeView btnId={btnId || 1} />
+                <CodeView />
               )}
             </div>
           </div>
