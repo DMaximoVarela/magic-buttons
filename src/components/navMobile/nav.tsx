@@ -10,18 +10,17 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import useButtonsStore from "@/stores/buttonsStore";
 import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 import Searchbar from "../searchbar/searchbar";
-import Toast from "../toast/toast";
 import useModalStore from "@/stores/modalStore";
+import useToastStore from "@/stores/toastStore";
 
 const NavMobile = () => {
   const [count, setCount] = useState(0);
   const [searchbarActive, setSearchbarActive] = useState(false);
-  const [toast, setToast] = useState(false);
-  const [message, setMessage] = useState("");
 
   const setModal = useModalStore((state) => state.setModal);
   const setActive = useModalStore((state) => state.setActive);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const createToast = useToastStore((state) => state.createToast);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
@@ -40,8 +39,7 @@ const NavMobile = () => {
       setModal(true);
       setActive(true);
     } else {
-      setMessage(`Se produjo un error desconocido 💀`);
-      setToast(true);
+      createToast(`Se produjo un error desconocido 💀`);
     }
   };
 
@@ -117,7 +115,6 @@ const NavMobile = () => {
           <MagicTouchButton onClick={onClick} />
         </li>
       </ul>
-      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };

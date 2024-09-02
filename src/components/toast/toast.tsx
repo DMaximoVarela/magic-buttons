@@ -1,28 +1,32 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Toast.module.css";
+import useToastStore from "@/stores/toastStore";
 
 interface props {
+  id: number;
   message: string;
-  active: boolean;
-  setActive: (toast: boolean) => void;
 }
 
-const Toast: React.FC<props> = ({ message, active, setActive }) => {
+const Toast: React.FC<props> = ({ id, message }) => {
+  const [display, setDisplay] = useState("flex");
+
+  const deleteToast = useToastStore((state) => state.deleteToast);
+
   useEffect(() => {
-    setActive(active);
-    if (active) {
-      setTimeout(() => {
-        setActive(!active);
-      }, 3000);
-    }
-  }, [active]);
+    const timer = setTimeout(() => {
+      setDisplay("none");
+      deleteToast(id);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [id, deleteToast]);
 
   return (
     <>
-      {active && (
-        <div className="fixed w-[100vw] h-[100vh] flex justify-center top-0 left-0 pointer-events-none">
+      {display === "flex" && (
+        <div style={{ display: display }} className={styles.container}>
           <div className={styles.toastContainer}>
             <span className={styles.message}>{message}</span>
           </div>

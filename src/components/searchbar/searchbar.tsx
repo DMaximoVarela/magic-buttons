@@ -2,16 +2,15 @@
 import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
-import Toast from "../toast/toast";
 import useModalStore from "@/stores/modalStore";
+import useToastStore from "@/stores/toastStore";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
-  const [toast, setToast] = useState(false);
-  const [message, setMessage] = useState("");
 
   const setModal = useModalStore((state) => state.setModal);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const createToast = useToastStore((state) => state.createToast);
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
   const button = useButtonsStore((state) => state.button);
@@ -21,8 +20,7 @@ const Searchbar = () => {
     if (value === "" || (/^\d+$/.test(value) && parseInt(value) > 0)) {
       setButtonId(value);
     } else {
-      setMessage("No se permiten letras, ni números negativos");
-      setToast(true);
+      createToast("No se permiten letras, ni números negativos");
     }
   };
 
@@ -31,8 +29,7 @@ const Searchbar = () => {
       setBtnId(Number(buttonId));
       setModal(true);
     } else {
-      setMessage(`El botón con el id ${buttonId} no ha sido encontrado...`);
-      setToast(true);
+      createToast(`El botón con el id ${buttonId} no ha sido encontrado...`);
     }
   };
 
@@ -43,8 +40,7 @@ const Searchbar = () => {
         await getButtonById(buttonId);
         handleButtonResult(button);
       } else {
-        setMessage("Por favor ingrese un número");
-        setToast(true);
+        createToast("Por favor ingrese un número");
       }
       e.target.blur();
       setButtonId("");
@@ -72,7 +68,6 @@ const Searchbar = () => {
         value={buttonId}
         placeholder="Ingresa el número del botón..."
       />
-      <Toast message={message} active={toast} setActive={setToast} />
     </div>
   );
 };
