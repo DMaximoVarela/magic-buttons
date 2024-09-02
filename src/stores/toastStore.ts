@@ -1,20 +1,25 @@
 import { create } from "zustand";
 
-interface State {
+interface Toast {
+  id: number;
   message: string;
-  setMessage: (message: string) => void;
-  active: boolean;
-  setActive: (active: boolean) => void;
+}
+
+interface State {
+  toasts: Toast[];
+  createToast: (message: string) => void;
+  deleteToast: (id: number) => void;
 }
 
 const useToastStore = create<State>((set) => ({
-  message: "",
-  setMessage: (message) => {
-    set({ message: message });
+  toasts: [],
+  createToast: (message) => {
+    set((state) => ({
+      toasts: [...state.toasts, { id: Date.now(), message }],
+    }));
   },
-  active: false,
-  setActive: (active) => {
-    set({ active: active });
+  deleteToast: (id) => {
+    set((state) => ({ toasts: state.toasts.filter((t) => t.id !== id) }));
   },
 }));
 
