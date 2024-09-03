@@ -1,3 +1,4 @@
+import useLanguageStore from "@/stores/languageStore";
 import React from "react";
 import { IoLanguageSharp } from "react-icons/io5";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -16,6 +17,13 @@ const languageOptions = [
 ];
 
 const LanguageSelect = () => {
+  const setLanguage = useLanguageStore((state) => state.setLanguage);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setLanguage(value);
+  };
+
   return (
     <div className="flex flex-col">
       <label htmlFor="language" className="text-xs px-1 mn:px-2">
@@ -26,6 +34,7 @@ const LanguageSelect = () => {
         <select
           name="language"
           className="appearance-none w-full xsm:px-5 sm:px-6 md:px-8 2xl:px-10 bg-transparent border border-[#C7C7C7] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4a90e2] cursor-pointer"
+          onChange={handleChange}
         >
           {languageOptions.map((lo) => {
             return (
