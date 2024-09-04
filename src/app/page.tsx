@@ -5,10 +5,12 @@ import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import { useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
+import { useTranslations } from "next-intl";
 // import AuxiliarViewButton from "@/components/auxiliarViewButton/auxiliarViewButton";
 
 export default function LandingPage() {
   const getButtons = useButtonsStore((state) => state.getButtons);
+  const t = useTranslations("HomePage");
 
   useEffect(() => {
     getButtons();
@@ -19,7 +21,8 @@ export default function LandingPage() {
       <div className={style.bg}></div>
       <div className="text-center px-6">
         <h1 className="text-[32px] sm:text-[42px] lg:text-[52px] 2xl:text-[72px] 4xl:text-[84px] font-bold">
-          Descubre <span className="text-[#4A90E2]">+100 Botones</span>{" "}
+          {t("title.lineOne")}{" "}
+          <span className="text-[#4A90E2]">+100 Botones</span>{" "}
           <span className="sm:hidden">con</span>
           <br />
           <span className="xsm:hidden sm:inline-block">con </span>{" "}
