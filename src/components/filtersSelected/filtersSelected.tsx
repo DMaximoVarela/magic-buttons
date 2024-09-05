@@ -1,4 +1,6 @@
 import useFiltersStore from "@/stores/filtersStore";
+import { quitarAcentos } from "@/utils/quitarAcentos";
+import { useTranslations } from "next-intl";
 
 const FiltersSelected = () => {
   const filters = useFiltersStore((state) => state.filters);
@@ -16,24 +18,32 @@ const FiltersSelected = () => {
     filters.style !== "Estilo" ||
     filters.category !== "null";
 
+  const t = useTranslations("filters");
+
   return (
     <div>
       <ul className="flex flex-wrap gap-3 my-4">
         {filters.size !== "Tamaño" && (
           <li className={stylesListItems} onClick={removeFilterSize}>
-            <span>{filters.size}</span>
+            <span>
+              {t(`sizeOptions.${quitarAcentos(filters.size.toLowerCase())}`)}
+            </span>
             <span>X</span>
           </li>
         )}
         {filters.style !== "Estilo" && (
           <li className={stylesListItems} onClick={removeFilterStyle}>
-            <span>{filters.style}</span>
+            <span>
+              {t(`styleOptions.${quitarAcentos(filters.style.toLowerCase())}`)}
+            </span>
             <span>X</span>
           </li>
         )}
         {filters.category !== "null" && (
           <li className={stylesListItems} onClick={removeFilterSelected}>
-            <span>{filters.category}</span>
+            <span>
+              {t(`filters.${quitarAcentos(filters.category.toLowerCase())}`)}
+            </span>
             <span>X</span>
           </li>
         )}

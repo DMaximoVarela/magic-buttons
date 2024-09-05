@@ -1,4 +1,6 @@
 import useFiltersStore from "@/stores/filtersStore";
+import { quitarAcentos } from "@/utils/quitarAcentos";
+import { useTranslations } from "next-intl";
 import { FaHandPointer, FaMagic, FaSyncAlt } from "react-icons/fa";
 import { RiArrowDownSFill } from "react-icons/ri";
 
@@ -12,7 +14,7 @@ const Filters = () => {
     "3D",
     "Gradiente",
   ];
-  const categoria = "";
+  const t = useTranslations("filters");
   const filters = [
     { name: "Hover", icon: FaHandPointer },
     { name: "Animación", icon: FaMagic },
@@ -66,7 +68,11 @@ const Filters = () => {
                     value={option}
                     className="text-white bg-[#191919]"
                   >
-                    {option}
+                    {filterType === "Tamaño"
+                      ? t(`sizeOptions.${quitarAcentos(option.toLowerCase())}`)
+                      : t(
+                          `styleOptions.${quitarAcentos(option.toLowerCase())}`
+                        )}
                   </option>
                 )
               )}
@@ -98,7 +104,7 @@ const Filters = () => {
             >
               <Icon className="text-[32px] sm:text-[52px] 2xl:text-[72px]" />
               <span className="text-[16px] sm:text-[24px] 2xl:text-[32px]">
-                {filter.name}
+                {t(`filters.${quitarAcentos(filter.name.toLowerCase())}`)}
               </span>
             </div>
           );

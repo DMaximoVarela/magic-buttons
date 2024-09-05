@@ -1,0 +1,69 @@
+{
+  "LandingPage": {
+    "title": {
+      "lineOne": "Discover",
+      "lineTwo": "+100 buttons",
+      "lineThree": "with",
+      "lineFour": "CSS code"
+    },
+    "subtitle": {
+      "lineOne": "Copy the CSS code of any",
+      "lineTwo": "button with just one click."
+    },
+    "btnText": "Start Journey"
+  },
+  "HomePage": {
+    "title": "Welcome!",
+    "subtitle": "Every button has its magic. Which one will you choose today?",
+    "btnLength": "Buttons",
+    "pagination": "Page 1 of 16"
+  },
+  "buttonContainer": "Button",
+  "copyComponent": {
+    "copiar": "Copy",
+    "copiado": "Copied!"
+  },
+  "filters": {
+    "filters": {
+      "hover": "Hover",
+      "animacion": "Animation",
+      "interactivo": "Interactive"
+    },
+    "sizeOptions": {
+      "tamano": "Size",
+      "pequeno": "Small",
+      "mediano": "Medium",
+      "grande": "Large"
+    },
+    "styleOptions": {
+      "estilo": "Style",
+      "plano": "Flat",
+      "elevado": "Elevated",
+      "redondeado": "Rounded",
+      "3d": "3D",
+      "gradiente": "Gradient"
+    }
+  },
+  "languageSelect": {
+    "idioma": "Language",
+    "es": "ES",
+    "en": "EN"
+  },
+  "magicTouchButton": "Magic Touch",
+  "modal": {
+    "boton": "Button",
+    "codigo": "Code"
+  },
+  "searchBar": {
+    "errorsMessages": {
+      "errorOne": "No letters or negative numbers allowed",
+      "errorTwo": {
+        "one": "The button with id",
+        "two": "was not found..."
+      },
+      "errorThree": "Please enter a number"
+    },
+    "placeholder": "Enter the button number..."
+  },
+  "nav": "An unknown error occurred."
+}

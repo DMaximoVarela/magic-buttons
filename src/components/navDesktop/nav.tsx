@@ -11,6 +11,7 @@ import MagicTouchButton from "../magicTouchButton/magicTouchButton";
 import useModalStore from "@/stores/modalStore";
 import useToastStore from "@/stores/toastStore";
 import LanguageSelect from "../languageSelect/languageSelect";
+import { useTranslations } from "next-intl";
 
 const Nav = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -24,6 +25,8 @@ const Nav = () => {
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
+
+  const t = useTranslations();
 
   let buttonId = Number(button?.id);
 
@@ -51,7 +54,7 @@ const Nav = () => {
       setModal(true);
       setActive(true);
     } else {
-      createToast(`Se produjo un error desconocido 💀`);
+      createToast(t("nav"));
     }
   };
 

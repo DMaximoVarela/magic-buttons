@@ -1,0 +1,69 @@
+{
+  "LandingPage": {
+    "title": {
+      "lineOne": "Descubre",
+      "lineTwo": "+100 botones",
+      "lineThree": "con",
+      "lineFour": "código CSS"
+    },
+    "subtitle": {
+      "lineOne": "Copia el código CSS de cualquier",
+      "lineTwo": "botón con solo un clic."
+    },
+    "btnText": "Iniciar Viaje"
+  },
+  "HomePage": {
+    "title": "Bienvenido!",
+    "subtitle": "Cada botón tiene su magia. ¿Cuál elegirás hoy?",
+    "btnLength": "Botones",
+    "pagination": "Página 1 de 16"
+  },
+  "buttonContainer": "Botón",
+  "copyComponent": {
+    "copiar": "Copiar",
+    "copiado": "¡Copiado!"
+  },
+  "filters": {
+    "filters": {
+      "hover": "Hover",
+      "animacion": "Animación",
+      "interactivo": "Interactivo"
+    },
+    "sizeOptions": {
+      "tamano": "Tamaño",
+      "pequeno": "Pequeño",
+      "mediano": "Mediano",
+      "grande": "Grande"
+    },
+    "styleOptions": {
+      "estilo": "Estilo",
+      "plano": "Plano",
+      "elevado": "Elevado",
+      "redondeado": "Redondeado",
+      "3d": "3D",
+      "gradiente": "Gradiente"
+    }
+  },
+  "languageSelect": {
+    "idioma": "idioma",
+    "es": "ES",
+    "en": "EN"
+  },
+  "magicTouchButton": "Toque Mágico",
+  "modal": {
+    "boton": "Botón",
+    "codigo": "Código"
+  },
+  "searchBar": {
+    "errorsMessages": {
+      "errorOne": "No se permiten letras, ni números negativos",
+      "errorTwo": {
+        "one": "El botón con el id",
+        "two": "no ha sido encontrado..."
+      },
+      "errorThree": "Por favor ingrese un número"
+    },
+    "placeholder": "Ingresa el número del botón..."
+  },
+  "nav": "Se produjo un error desconocido."
+}

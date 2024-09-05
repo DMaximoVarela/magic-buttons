@@ -13,6 +13,7 @@ import Searchbar from "../searchbar/searchbar";
 import useModalStore from "@/stores/modalStore";
 import useToastStore from "@/stores/toastStore";
 import LanguageSelect from "../languageSelect/languageSelect";
+import { useTranslations } from "next-intl";
 
 const NavMobile = () => {
   const [count, setCount] = useState(0);
@@ -25,6 +26,8 @@ const NavMobile = () => {
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
   const button = useButtonsStore((state) => state.randomButton);
+
+  const t = useTranslations();
 
   let buttonId = Number(button?.id);
 
@@ -40,7 +43,7 @@ const NavMobile = () => {
       setModal(true);
       setActive(true);
     } else {
-      createToast(`Se produjo un error desconocido 💀`);
+      createToast(t("nav"));
     }
   };
 
