@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import useButtonsStore from "@/stores/buttonsStore";
 import useModalStore from "@/stores/modalStore";
 import useToastStore from "@/stores/toastStore";
+import { useTranslations } from "next-intl";
 
 const Searchbar = () => {
   const [buttonId, setButtonId] = useState("");
@@ -15,12 +16,14 @@ const Searchbar = () => {
   const getButtonById = useButtonsStore((state) => state.getButtonById);
   const button = useButtonsStore((state) => state.button);
 
+  const t = useTranslations("searchBar");
+
   const handleInput = (e) => {
     const value = e.target.value;
     if (value === "" || (/^\d+$/.test(value) && parseInt(value) > 0)) {
       setButtonId(value);
     } else {
-      createToast("No se permiten letras, ni números negativos");
+      createToast(t("errorsMessages.errorOne"));
     }
   };
 
@@ -29,7 +32,11 @@ const Searchbar = () => {
       setBtnId(Number(buttonId));
       setModal(true);
     } else {
-      createToast(`El botón con el id ${buttonId} no ha sido encontrado...`);
+      createToast(
+        `${t("errorsMessages.errorTwo.one")} ${buttonId} ${t(
+          "errorsMessages.errorTwo.two"
+        )}`
+      );
     }
   };
 
@@ -40,7 +47,7 @@ const Searchbar = () => {
         await getButtonById(buttonId);
         handleButtonResult(button);
       } else {
-        createToast("Por favor ingrese un número");
+        createToast(t("errorsMessages.errorThree"));
       }
       e.target.blur();
       setButtonId("");
@@ -66,7 +73,7 @@ const Searchbar = () => {
         onChange={handleInput}
         onKeyDown={handleKeyDown}
         value={buttonId}
-        placeholder="Ingresa el número del botón..."
+        placeholder={t("placeholder")}
       />
     </div>
   );

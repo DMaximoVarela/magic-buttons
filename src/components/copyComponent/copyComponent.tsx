@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useState, useEffect } from "react";
 import { FaRegCopy, FaCopy, FaCheck } from "react-icons/fa6";
 
 interface TextToCopy {
@@ -8,24 +9,33 @@ interface TextToCopy {
 }
 
 const CopyComponent: React.FC<TextToCopy> = ({ text }) => {
+  const t = useTranslations("copyComponent");
+
+  let stringCopy = t("copiar");
+  let stringCopied = t("copiado");
+
   const [isCopy, setIsCopy] = useState({
-    text: "Copiar",
+    text: stringCopy,
     icon: FaRegCopy,
   });
 
   const [isClicked, setIsClicked] = useState(false);
 
+  useEffect(() => {
+    setIsCopy({ text: t("copiar"), icon: FaRegCopy });
+  }, [t]);
+
   const copy = () => {
     navigator.clipboard.writeText(text); // copia el textp al portapapeles
     setIsCopy({
-      text: "¡Copiado!",
+      text: stringCopied,
       icon: FaCheck,
     });
     setIsClicked(true);
 
     setTimeout(() => {
       setIsCopy({
-        text: "Copiar",
+        text: stringCopy,
         icon: FaRegCopy,
       });
       setIsClicked(false);
@@ -35,7 +45,7 @@ const CopyComponent: React.FC<TextToCopy> = ({ text }) => {
   const handleMouseEnter = () => {
     if (!isClicked) {
       setIsCopy({
-        text: "Copiar",
+        text: stringCopy,
         icon: FaCopy,
       });
     }
@@ -44,7 +54,7 @@ const CopyComponent: React.FC<TextToCopy> = ({ text }) => {
   const handleMouseLeave = () => {
     if (!isClicked) {
       setIsCopy({
-        text: "Copiar",
+        text: stringCopy,
         icon: FaRegCopy,
       });
     }
