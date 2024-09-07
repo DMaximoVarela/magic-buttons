@@ -21,3 +21,23 @@
   border: solid 1px #4e4e4e;
   border-radius: 4px;
 }
+
+.lineNumbers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lineNumber {
+  line-height: 1.5;
+}
+
+.code {
+  margin-left: 8px;
+  flex: 1;
+  white-space: pre;
+}
