@@ -36,7 +36,7 @@ const Page = () => {
             <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
               {`${t("pagination.lineOne")} ${activePage + 1} ${t(
                 "pagination.lineTwo"
-              )} ${totalPages}`}
+              )} ${totalPages === 0 ? 1 : totalPages}`}
             </li>
           </ul>
           <FiltersSelected />
