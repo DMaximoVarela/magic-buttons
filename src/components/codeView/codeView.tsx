@@ -3,7 +3,7 @@
 import { FaCss3Alt, FaHtml5 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import CodeComponent from "../codeComponent/codeComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CodeView = () => {
   const [html, setHtml] = useState(true);
@@ -38,6 +38,28 @@ const CodeView = () => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCss(false);
+        setHtml(true);
+        setTailwind(false)
+      } else {
+        setCss(true);
+        setHtml(true);
+        setTailwind(false)
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="size-full flex flex-col">
       <ul className="flex self-start justify-start items-center gap-3 text-[32px] m-4">
@@ -62,11 +84,7 @@ const CodeView = () => {
               css ? "text-[#264DE4]" : "text-[#C7C7C7]"
             }`}
             onClick={() => {
-              if (window.innerWidth > 640) {
-                handleCodeBig("css");
-              } else {
-                handleCodeSmall("css");
-              }
+              window.innerWidth > 640 ? handleCodeBig("css") : handleCodeSmall("css")
             }}
           >
             <FaCss3Alt />
