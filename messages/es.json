@@ -65,5 +65,13 @@
     },
     "placeholder": "Ingresa el número del botón..."
   },
-  "nav": "Se produjo un error desconocido."
+  "nav": "Se produjo un error desconocido.",
+  "error404page": {
+    "title": {
+      "lineOne": "página",
+      "lineTwo": "no",
+      "lineThree": "encontrada!"
+    },
+    "btnText": "Volver al Inicio"
+  }
 }

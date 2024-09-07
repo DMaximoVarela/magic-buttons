@@ -65,5 +65,13 @@
     },
     "placeholder": "Enter the button number..."
   },
-  "nav": "An unknown error occurred."
+  "nav": "An unknown error occurred.",
+    "error404page": {
+    "title": {
+      "lineOne": "page",
+      "lineTwo": "not",
+      "lineThree": "found!"
+    },
+    "btnText": "Back to Home"
+  }
 }
