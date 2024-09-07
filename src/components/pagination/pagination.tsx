@@ -20,19 +20,23 @@ const Pagination = () => {
       range.push("...");
     }
 
-    for (
-      let i = Math.max(1, activePage - 2);
-      i <= Math.min(totalPages - 2, activePage + 2);
-      i++
-    ) {
-      range.push(i);
+    if (totalPages > 1) {
+      for (
+        let i = Math.max(1, activePage - 2);
+        i <= Math.min(totalPages - 2, activePage + 2);
+        i++
+      ) {
+        range.push(i);
+      }
     }
 
     if (activePage < totalPages - 4) {
       range.push("...");
     }
 
-    range.push(totalPages - 1);
+    if (totalPages > 1) {
+      range.push(totalPages - 1);
+    }
 
     return range;
   };
@@ -86,12 +90,12 @@ const Pagination = () => {
       </ul>
       <IoIosArrowForward
         className={`${
-          activePage === totalPages - 1
+          activePage === totalPages - 1 || activePage === totalPages
             ? "text-slate-400 cursor-not-allowed"
             : "hover:bg-[#4d4d4d40] cursor-pointer"
         } rounded-md p-2 size-full`}
         onClick={() => {
-          if (activePage < totalPages - 1) {
+          if (activePage < totalPages - 1 || activePage === totalPages) {
             setActivePage(activePage + 1);
           }
         }}
