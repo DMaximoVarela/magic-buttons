@@ -6,10 +6,14 @@ import Cards from "@/components/cards/cards";
 import useButtonsStore from "@/stores/buttonsStore";
 import { useTranslations } from "next-intl";
 import Pagination from "@/components/pagination/pagination";
+import usePaginationStore from "@/stores/paginationStore";
+import { paginationButtons } from "@/utils/paginationButtons";
 
 const Page = () => {
   const buttons = useButtonsStore((state) => state.buttons);
   const t = useTranslations("HomePage");
+  const activePage = usePaginationStore((state) => state.active);
+  const totalPages = paginationButtons(buttons).length;
 
   return (
     <div className="relative flex flex-col w-[100vw] mt-[52px] sm:mt-[76px] lg:mt-[104px] 2xl:mt-[124px] px-6">
@@ -30,7 +34,9 @@ const Page = () => {
               {`${buttons.length} ${t("btnLength")}`}
             </li>
             <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
-              {t("pagination")}
+              {`${t("pagination.lineOne")} ${activePage + 1} ${t(
+                "pagination.lineTwo"
+              )} ${totalPages}`}
             </li>
           </ul>
           <FiltersSelected />

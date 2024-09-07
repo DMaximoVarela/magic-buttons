@@ -16,7 +16,10 @@
     "title": "Bienvenido!",
     "subtitle": "Cada botón tiene su magia. ¿Cuál elegirás hoy?",
     "btnLength": "Botones",
-    "pagination": "Página 1 de 16"
+    "pagination": {
+      "lineOne": "Página",
+      "lineTwo": "de"
+    }
   },
   "buttonContainer": "Botón",
   "copyComponent": {

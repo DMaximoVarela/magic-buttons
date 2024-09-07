@@ -16,7 +16,10 @@
     "title": "Welcome!",
     "subtitle": "Every button has its magic. Which one will you choose today?",
     "btnLength": "Buttons",
-    "pagination": "Page 1 of 16"
+    "pagination": {
+      "lineOne": "Page",
+      "lineTwo": "of"
+    }
   },
   "buttonContainer": "Button",
   "copyComponent": {
@@ -66,7 +69,7 @@
     "placeholder": "Enter the button number..."
   },
   "nav": "An unknown error occurred.",
-    "error404page": {
+  "error404page": {
     "title": {
       "lineOne": "page",
       "lineTwo": "not",
