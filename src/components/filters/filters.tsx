@@ -1,4 +1,5 @@
 import useFiltersStore from "@/stores/filtersStore";
+import usePaginationStore from "@/stores/paginationStore";
 import { quitarAcentos } from "@/utils/quitarAcentos";
 import { useTranslations } from "next-intl";
 import { FaHandPointer, FaMagic, FaSyncAlt } from "react-icons/fa";
@@ -28,17 +29,21 @@ const Filters = () => {
   const removeFilterSelected = useFiltersStore(
     (state) => state.removeFilterSelected
   );
+  const setActivePagination = usePaginationStore((state) => state.setActive);
 
   const handleFilterBySize = (event) => {
     filterSize(event.target.value);
+    setActivePagination(0);
   };
 
   const handleFilterByStyle = (event) => {
     filterStyle(event.target.value);
+    setActivePagination(0);
   };
 
   const handleFilterSelected = (filter) => {
     filterSelected(filter);
+    setActivePagination(0);
   };
 
   return (
