@@ -5,6 +5,7 @@ import FiltersSelected from "@/components/filtersSelected/filtersSelected";
 import Cards from "@/components/cards/cards";
 import useButtonsStore from "@/stores/buttonsStore";
 import { useTranslations } from "next-intl";
+import Pagination from "@/components/pagination/pagination";
 
 const Page = () => {
   const buttons = useButtonsStore((state) => state.buttons);
@@ -34,6 +35,9 @@ const Page = () => {
           </ul>
           <FiltersSelected />
           <Cards />
+          <div className="relative flex justify-center items-center mt-4">
+            <Pagination />
+          </div>
         </div>
       </div>
     </div>
