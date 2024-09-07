@@ -20,14 +20,12 @@ const CodeComponent: React.FC<content> = ({ typeCode }) => {
   };
 
   const addLineNumbers = (code: string) => {
-    return code
-      .split("\n")
-      .map((line, index) => `${index + 1}  ${line}`)
-      .join("\n");
+    return code.split("\n").map((_, index) => index + 1);
   };
 
-  const numberedCode = addLineNumbers(buttonCode(typeCode));
-  // NOTA DE MEJORA: HACER QUE EL NUMERO NO SE PUEDA SELECCIONAR COMO TEXTO!
+  const numberedCode = buttonCode(typeCode).split("\n");
+
+  const lineNumbers = addLineNumbers(buttonCode(typeCode));
 
   return (
     <div className="relative flex flex-col self-center justify-center items-center w-[90%] sm:w-[45%] h-[100%] border-[.5px] rounded-2xl bg-[#202020]">
@@ -38,12 +36,21 @@ const CodeComponent: React.FC<content> = ({ typeCode }) => {
           <li className="bg-[#3c3c3c] size-3 lg:size-4 rounded-full"></li>
         </ul>
         <span>button.{typeCode === "tailwind" ? "jsx" : typeCode}</span>
-        <div className="w-[60px] lg:w-[72px]">
-          {/**solo es para ocupar espacio ;)*/}
-        </div>
+        <div className="w-[60px] lg:w-[72px]">{/*solo es para ocupar espacio ;)*/}</div>
       </div>
       <div className={style.container}>
-        <pre className="whitespace-pre">{numberedCode}</pre>
+        <div className={style.lineNumbers}>
+          {lineNumbers.map((line, index) => (
+            <div key={index} className={style.lineNumber}>
+              {line}
+            </div>
+          ))}
+        </div>
+        <pre className={`${style.code} whitespace-pre`}>
+          {numberedCode.map((line, index) => (
+            <div key={index}>{line}</div>
+          ))}
+        </pre>
       </div>
       <div className="absolute bottom-0 right-0 m-2">
         <CopyComponent text={buttonCode(typeCode)} />
