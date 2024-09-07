@@ -35,7 +35,7 @@ const Page = () => {
           </ul>
           <FiltersSelected />
           <Cards />
-          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2">
+          <div className="relative flex justify-center items-center mt-4">
             <Pagination />
           </div>
         </div>

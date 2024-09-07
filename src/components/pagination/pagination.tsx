@@ -40,7 +40,7 @@ const Pagination = () => {
   const paginationRange = getPaginationRange();
 
   return (
-    <div className="flex justify-center items-center space-x-4 text-[16px] text-white bg-[#00000059] w-fit p-2 rounded-lg backdrop-blur-sm">
+    <div className="flex justify-center items-center space-x-4 text-[16px] text-white bg-[#191919] w-fit p-2 rounded-lg">
       <IoIosArrowBack
         className={`${
           activePage === 0
