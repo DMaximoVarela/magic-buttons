@@ -69,7 +69,7 @@ const Nav = () => {
   }, [count]);
 
   return (
-    <div className="fixed w-full h-[100px] 2xl:h-[120px] top-0 left-0 lg:flex justify-between items-center p-4 xl:p-8 z-50 shadow-lg backdrop-blur-md bg-[#191919bf] border-b border-b-[#bdc3c780] hidden">
+    <div className="fixed w-full h-[100px] 2xl:h-[120px] top-0 left-0 lg:flex justify-between items-center p-4 xl:p-8 z-50 shadow-lg backdrop-blur-md border-b border-b-[#bdc3c780] hidden">
       <ul className="list-none flex justify-stretch items-center gap-4 xl:gap-10">
         <Link href={"/"}>
           <li>
