@@ -27,7 +27,7 @@ export default function LandingPage() {
           <br />
           <span className="xsm:hidden sm:inline-block">
             {t("title.lineThree")}{" "}
-          </span>
+          </span>{" "}
           <span className="text-[#4A90E2] inline-block">
             {t("title.lineFour")}
           </span>
