@@ -80,6 +80,7 @@ const useButtonsStore = create<State>((set) => ({
       set({ button: button });
     } catch (error) {
       console.error("Error en la store:", error);
+      set({button: null})
     }
   },
   getRandomButton: async (id) => {
@@ -88,6 +89,7 @@ const useButtonsStore = create<State>((set) => ({
       set({ randomButton: button });
     } catch (error) {
       console.error("Error en la store:", error);
+      set({randomButton: null})
     }
   },
 }));
