@@ -9,6 +9,7 @@ import Pagination from "@/components/pagination/pagination";
 import usePaginationStore from "@/stores/paginationStore";
 import { paginationButtons } from "@/utils/paginationButtons";
 import MiniContainerSkeleton from "@/components/Skeletons/miniContainerSkeleton/miniContainerSkeleton";
+import ContainerSkeleton from "@/components/Skeletons/containerSkeleton/containerSkeleton";
 
 const Page = () => {
   const buttons = useButtonsStore((state) => state.buttons);
@@ -52,7 +53,7 @@ const Page = () => {
           <FiltersSelected />
           <Cards />
           <div className="relative flex justify-center items-center mt-4">
-            <Pagination />
+            {allButtons.length > 0 ? <Pagination /> : <ContainerSkeleton />}
           </div>
         </div>
       </div>
