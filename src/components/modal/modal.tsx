@@ -5,6 +5,7 @@ import ButtonView from "../buttonView/buttonView";
 import CodeView from "../codeView/codeView";
 import useModalStore from "@/stores/modalStore";
 import useButtonsStore from "@/stores/buttonsStore";
+import { useTranslations } from "next-intl";
 
 const Modal = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -17,6 +18,7 @@ const Modal = () => {
 
   const button = useButtonsStore((state) => state.button);
   const getButtonById = useButtonsStore((state) => state.getButtonById);
+  const t = useTranslations("modal");
 
   useEffect(() => {
     const fetchData = () => {
@@ -46,7 +48,9 @@ const Modal = () => {
               >
                 X
               </span>
-              <span className="text-[18px] lg:text-[24px]">Botón #{btnId}</span>
+              <span className="text-[18px] lg:text-[24px]">
+                {t("boton")} #{btnId}
+              </span>
               <div className="w-8 lg:w-12 h-8 lg:h-12"></div>{" "}
               {/* div vacio para balancear el header */}
             </div>
@@ -60,7 +64,7 @@ const Modal = () => {
                   setViewActive("button");
                 }}
               >
-                Botón
+                {t("boton")}
               </li>
               <li className="cursor-context-menu">|</li>
               <li
@@ -72,7 +76,7 @@ const Modal = () => {
                   darkMode ? "" : setDarkMode(true);
                 }}
               >
-                Código
+                {t("codigo")}
               </li>
             </ul>
 
