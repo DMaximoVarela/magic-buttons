@@ -8,9 +8,12 @@ import { useTranslations } from "next-intl";
 import Pagination from "@/components/pagination/pagination";
 import usePaginationStore from "@/stores/paginationStore";
 import { paginationButtons } from "@/utils/paginationButtons";
+import MiniContainerSkeleton from "@/components/Skeletons/miniContainerSkeleton/miniContainerSkeleton";
+import ContainerSkeleton from "@/components/Skeletons/containerSkeleton/containerSkeleton";
 
 const Page = () => {
   const buttons = useButtonsStore((state) => state.buttons);
+  const allButtons = useButtonsStore((state) => state.buttonsCopy);
   const t = useTranslations("HomePage");
   const activePage = usePaginationStore((state) => state.active);
   const totalPages = paginationButtons(buttons).length;
@@ -31,18 +34,26 @@ const Page = () => {
         <div className="absolute p-6 w-full h-fit bg-[#202020]">
           <ul className="flex justify-between items-center">
             <li className="text-[20px] sm:text-[24px] lg:text-[32px] text-white">
-              {`${buttons.length} ${t("btnLength")}`}
+              {allButtons.length > 0 ? (
+                `${buttons.length} ${t("btnLength")}`
+              ) : (
+                <MiniContainerSkeleton />
+              )}
             </li>
             <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
-              {`${t("pagination.lineOne")} ${activePage + 1} ${t(
-                "pagination.lineTwo"
-              )} ${totalPages === 0 ? 1 : totalPages}`}
+              {allButtons.length > 0 ? (
+                `${t("pagination.lineOne")} ${activePage + 1} ${t(
+                  "pagination.lineTwo"
+                )} ${totalPages === 0 ? 1 : totalPages}`
+              ) : (
+                <MiniContainerSkeleton />
+              )}
             </li>
           </ul>
           <FiltersSelected />
           <Cards />
           <div className="relative flex justify-center items-center mt-4">
-            <Pagination />
+            {allButtons.length > 0 ? <Pagination /> : <ContainerSkeleton />}
           </div>
         </div>
       </div>

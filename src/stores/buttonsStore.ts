@@ -16,9 +16,11 @@ interface Button {
 
 interface State {
   buttons: Button[];
+  buttonsCopy: Button[];
   button: Button | null;
   randomButton: Button | null;
   getButtons: (categoria?: string, tamano?: string, estilo?: string) => void;
+  getAllButtons: () => void;
   getButtonById: (id: string) => void;
   getRandomButton: (id: string) => void;
 }
@@ -49,6 +51,19 @@ const getButtons = async (
   }
 };
 
+const getAllButtons = async () => {
+  try {
+    let url = `${API_URL}buttons`;
+
+    const response = await axios.get(url);
+
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener botones:", error);
+    throw error;
+  }
+};
+
 const getButtonById = async (id: string) => {
   try {
     let url = `${API_URL}buttons/${id}`;
@@ -64,6 +79,7 @@ const getButtonById = async (id: string) => {
 
 const useButtonsStore = create<State>((set) => ({
   buttons: [],
+  buttonsCopy: [],
   button: null,
   randomButton: null,
   getButtons: async (categoria?: string, tamano?: string, estilo?: string) => {
@@ -74,13 +90,21 @@ const useButtonsStore = create<State>((set) => ({
       console.error("Error en el store:", error);
     }
   },
+  getAllButtons: async () => {
+    try {
+      const buttons = await getAllButtons();
+      set({ buttonsCopy: buttons });
+    } catch (error) {
+      console.error("Error en la store: ", error);
+    }
+  },
   getButtonById: async (id: string) => {
     try {
       const button = await getButtonById(id);
       set({ button: button });
     } catch (error) {
       console.error("Error en la store:", error);
-      set({button: null})
+      set({ button: null });
     }
   },
   getRandomButton: async (id) => {
@@ -89,7 +113,7 @@ const useButtonsStore = create<State>((set) => ({
       set({ randomButton: button });
     } catch (error) {
       console.error("Error en la store:", error);
-      set({randomButton: null})
+      set({ randomButton: null });
     }
   },
 }));

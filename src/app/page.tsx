@@ -10,10 +10,12 @@ import { useTranslations } from "next-intl";
 
 export default function LandingPage() {
   const getButtons = useButtonsStore((state) => state.getButtons);
+  const getAllButtons = useButtonsStore((state) => state.getAllButtons);
   const t = useTranslations("LandingPage");
 
   useEffect(() => {
     getButtons();
+    getAllButtons();
   }, []);
 
   return (
