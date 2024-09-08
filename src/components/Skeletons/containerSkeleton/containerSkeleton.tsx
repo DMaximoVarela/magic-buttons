@@ -1,7 +1,7 @@
 const ContainerSkeleton = () => {
   return (
     <div>
-      <button className="w-40 h-12 animate-pulse bg-slate-600 p-2 rounded-lg" />
+      <button className="w-40 h-12 animate-pulse bg-slate-600 p-2 rounded-lg cursor-default" />
     </div>
   );
 };
