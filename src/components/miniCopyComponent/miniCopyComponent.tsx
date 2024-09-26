@@ -50,7 +50,9 @@ const MiniCopyComponent: React.FC<TextToCopy> = ({ text }) => {
       onClick={copy}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="flex justify-center items-center size-8 lg:size-10 text-[16px] lg:text-[24px] text-slate-100 bg-[#303030] hover:bg-[#272727] rounded-lg cursor-pointer"
+      className={`flex justify-center items-center size-8 lg:size-10 text-[16px] lg:text-[24px] text-slate-100 bg-[#303030] hover:bg-[#272727] rounded-lg ${
+        isClicked ? "cursor-not-allowed" : "cursor-pointer"
+      }`}
     >
       <isCopy.icon />
     </div>
