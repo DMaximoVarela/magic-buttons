@@ -28,6 +28,8 @@ const Modal = () => {
     };
 
     fetchData();
+    setDarkMode(true);
+    setViewActive("button");
   }, [btnId]);
 
   return (
