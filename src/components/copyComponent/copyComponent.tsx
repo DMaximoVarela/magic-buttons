@@ -62,7 +62,9 @@ const CopyComponent: React.FC<TextToCopy> = ({ text }) => {
 
   return (
     <div
-      className="w-[90px] sm:w-[100px] 3xl:w-[110px] h-auto p-1 rounded-lg bg-[#202020] shadow shadow-[#151515] cursor-pointer"
+      className={`w-[90px] sm:w-[100px] 3xl:w-[110px] h-auto p-1 rounded-lg bg-[#202020] shadow shadow-[#151515] ${
+        isClicked ? "cursor-not-allowed" : "cursor-pointer"
+      }`}
       onClick={copy}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
