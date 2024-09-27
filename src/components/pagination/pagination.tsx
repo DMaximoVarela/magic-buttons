@@ -95,7 +95,10 @@ const Pagination = () => {
             : "hover:bg-[#4d4d4d40] cursor-pointer"
         } rounded-md p-2 size-full`}
         onClick={() => {
-          if (activePage < totalPages - 1 || activePage === totalPages) {
+          if (
+            activePage < totalPages - 1 ||
+            (activePage === totalPages && totalPages !== 0)
+          ) {
             setActivePage(activePage + 1);
           }
         }}
