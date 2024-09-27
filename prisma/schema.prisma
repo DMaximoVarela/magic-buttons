@@ -7,6 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Author {
+  id  Int  @id @default(autoincrement())
+  name String
+  githubUrl String?
+  imageUrl String?
+  buttons  Button[] @relation("AuthorButtons")
+}
+
 model Button {
   id  Int  @id @default(autoincrement())
   categoria  String
@@ -15,4 +23,6 @@ model Button {
   htmlCode String
   cssCode String
   tailwindCode String
+  authorId Int?
+  author Author? @relation("AuthorButtons", fields: [authorId], references: [id])
 }
