@@ -44,13 +44,21 @@ const Cards = () => {
   return (
     <div>
       <ul className="flex flex-wrap justify-center sm:justify-between items-center gap-y-6 lg:gap-y-10">
-        {allButtonsCopy.length > 0
-          ? pageButtons[activePage]?.map((btn) => (
-              <ButtonContainer key={btn.id} btnId={btn.id} />
-            ))
-          : numberedArrayAux.map((value) => (
-              <ButtonContainerSkeleton key={value} />
-            ))}
+        {allButtonsCopy.length > 0 && allButtons.length > 0 ? (
+          pageButtons[activePage]?.map((btn) => (
+            <ButtonContainer key={btn.id} btnId={btn.id} />
+          ))
+        ) : !allButtons.length && allButtonsCopy.length > 0 ? (
+          <div className="flex justify-center items-center w-fit mx-auto my-6">
+            <span className="text-center text-lg">
+              No se encontraron botones con estos filtros...
+            </span>
+          </div>
+        ) : (
+          numberedArrayAux.map((value) => (
+            <ButtonContainerSkeleton key={value} />
+          ))
+        )}
       </ul>
     </div>
   );
