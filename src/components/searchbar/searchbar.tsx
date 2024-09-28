@@ -11,6 +11,7 @@ const Searchbar = () => {
 
   const setModal = useModalStore((state) => state.setModal);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const setAuthorId = useModalStore((state) => state.setAuthorId);
   const createToast = useToastStore((state) => state.createToast);
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
@@ -30,6 +31,7 @@ const Searchbar = () => {
   const handleButtonResult = (button: any) => {
     if (button) {
       setBtnId(Number(buttonId));
+      setAuthorId(button.authorId);
       setModal(true);
     } else {
       createToast(

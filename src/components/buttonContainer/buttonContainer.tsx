@@ -12,6 +12,7 @@ const ButtonContainer: React.FC<button> = ({ btnId }) => {
   const buttons = useButtonsStore((state) => state.buttons);
   const setModal = useModalStore((state) => state.setModal);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const setAuthorId = useModalStore((state) => state.setAuthorId);
 
   const button = buttons.filter((btn) => btn.id === btnId);
   const t = useTranslations();
@@ -28,6 +29,7 @@ const ButtonContainer: React.FC<button> = ({ btnId }) => {
             className="w-fit h-fit mb-4 cursor-pointer"
             onClick={() => {
               setBtnId(button[0].id);
+              setAuthorId(button[0].authorId);
               setModal(true);
             }}
           >

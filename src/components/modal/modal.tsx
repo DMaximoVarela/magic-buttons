@@ -6,6 +6,7 @@ import CodeView from "../codeView/codeView";
 import useModalStore from "@/stores/modalStore";
 import useButtonsStore from "@/stores/buttonsStore";
 import { useTranslations } from "next-intl";
+import useAuthorsStore from "@/stores/authorsStore";
 
 const Modal = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -14,16 +15,18 @@ const Modal = () => {
   const modal = useModalStore((state) => state.modal);
   const setModal = useModalStore((state) => state.setModal);
   const btnId = useModalStore((state) => state.btnId);
+  const authorId = useModalStore((state) => state.authorId)
   const active = useModalStore((state) => state.active);
 
-  const button = useButtonsStore((state) => state.button);
   const getButtonById = useButtonsStore((state) => state.getButtonById);
+  const getAuthorById = useAuthorsStore((state) => state.getAuthorById);
   const t = useTranslations("modal");
 
   useEffect(() => {
     const fetchData = () => {
       if (btnId) {
         getButtonById(btnId.toString());
+        getAuthorById(authorId.toString())
       }
     };
 
