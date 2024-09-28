@@ -21,6 +21,7 @@ const Nav = () => {
   const setModal = useModalStore((state) => state.setModal);
   const setActive = useModalStore((state) => state.setActive);
   const setBtnId = useModalStore((state) => state.setBtnId);
+  const setAuthorId = useModalStore((state) => state.setAuthorId);
   const createToast = useToastStore((state) => state.createToast);
 
   const getRandomButton = useButtonsStore((state) => state.getRandomButton);
@@ -51,6 +52,7 @@ const Nav = () => {
 
     if (button) {
       setBtnId(buttonId);
+      setAuthorId(button?.authorId);
       setModal(true);
       setActive(true);
     } else {

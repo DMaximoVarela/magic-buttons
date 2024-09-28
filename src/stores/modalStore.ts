@@ -5,6 +5,8 @@ interface State {
   setModal: (modal: boolean) => void;
   btnId: number | null;
   setBtnId: (id: number) => void;
+  authorId: number;
+  setAuthorId: (id: number) => void;
   active: boolean;
   setActive: (active: boolean) => void;
 }
@@ -17,6 +19,10 @@ const useModalStore = create<State>((set) => ({
   btnId: null,
   setBtnId: (id) => {
     set({ btnId: id });
+  },
+  authorId: 0,
+  setAuthorId: (id) => {
+    set({ authorId: id });
   },
   active: false,
   setActive: (active) => {

@@ -12,6 +12,7 @@ interface Button {
   htmlCode: string;
   cssCode: string;
   tailwindCode: string;
+  authorId: number;
 }
 
 interface State {
