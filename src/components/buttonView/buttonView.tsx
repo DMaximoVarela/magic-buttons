@@ -23,7 +23,7 @@ const ButtonView: React.FC<content> = ({ darkMode, setDarkMode }) => {
     <div>
       <Button codeString={button?.tailwindCode || ""} />
       <Link href={author?.githubUrl || ""} target="blank" rel="noopener">
-        <ul className="absolute bottom-0 left-0 m-6 p-2 h-8 lg:h-10 flex justify-start items-center space-x-2 bg-[#303030] rounded-2xl border-transparent border-2 hover:border-[#2072D3] text-slate-100 hover:text-[#4A90E2] text-[16px]">
+        <ul className="absolute bottom-0 left-0 m-6 p-2 h-8 lg:h-10 flex justify-start items-center space-x-2 bg-[#303030] rounded-2xl border-transparent border-2 hover:border-[#2072D3] text-slate-100 text-[16px] cursor-pointer transition duration-300 ease-in-out transform">
           <li className="w-6 h-6">
             <Image
               src={author?.imageUrl || auxImage}
