@@ -25,6 +25,7 @@ const Modal = () => {
   const t = useTranslations("modal");
   const loadingBtn = useButtonsStore((state) => state.loadingInd);
   const loadingAut = useButtonsStore((state) => state.loadingInd);
+  const resetBAId = useModalStore((state) => state.resetBAId);
 
   useEffect(() => {
     const fetchData = () => {
@@ -50,6 +51,7 @@ const Modal = () => {
                   setModal(!modal);
                   resetButton();
                   resetAuthor();
+                  resetBAId();
                   if (active) {
                     setViewActive("button");
                     setDarkMode(true);

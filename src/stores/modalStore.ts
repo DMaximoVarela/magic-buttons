@@ -9,6 +9,7 @@ interface State {
   setAuthorId: (id: number) => void;
   active: boolean;
   setActive: (active: boolean) => void;
+  resetBAId: () => void;
 }
 
 const useModalStore = create<State>((set) => ({
@@ -27,6 +28,9 @@ const useModalStore = create<State>((set) => ({
   active: false,
   setActive: (active) => {
     set({ active: active });
+  },
+  resetBAId: () => {
+    set({ btnId: null, authorId: 0 });
   },
 }));
 
