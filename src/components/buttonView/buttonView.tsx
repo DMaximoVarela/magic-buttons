@@ -20,7 +20,7 @@ const ButtonView: React.FC<content> = ({ darkMode, setDarkMode }) => {
   const loadingAut = useButtonsStore((state) => state.loadingInd);
 
   const auxImage =
-    "https://lh3.googleusercontent.com/a/ACg8ocJcaMp95SjVg43DJYimmwC_8r6ggT-8kOMc3vNK8_JYyKKGSWMA4l-HahwkjbSfcdxXWzdgu3elqMJbwLoM30SWIYnmyFU=s288-c-no";
+    "https://lh3.googleusercontent.com/a/ACg8ocIIbsDMDpU081dViIHqA1Q1I2tbJCHn4PmiXMM7PpKLMs9dxMOW1LVfUMPsIsDDLnXmvWeVnm1QsbHI-LCP0ML35HJOIC4=s288-c-no";
 
   return (
     <div>
