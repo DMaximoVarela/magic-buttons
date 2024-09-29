@@ -10,6 +10,7 @@ import usePaginationStore from "@/stores/paginationStore";
 import { paginationButtons } from "@/utils/paginationButtons";
 import MiniContainerSkeleton from "@/components/Skeletons/miniContainerSkeleton/miniContainerSkeleton";
 import ContainerSkeleton from "@/components/Skeletons/containerSkeleton/containerSkeleton";
+import { useEffect } from "react";
 
 const Page = () => {
   const buttons = useButtonsStore((state) => state.buttons);
@@ -17,6 +18,13 @@ const Page = () => {
   const t = useTranslations("HomePage");
   const activePage = usePaginationStore((state) => state.active);
   const totalPages = paginationButtons(buttons).length;
+  const getButtons = useButtonsStore((state) => state.getButtons);
+  const getAllButtons = useButtonsStore((state) => state.getAllButtons);
+
+  useEffect(() => {
+    getButtons();
+    getAllButtons();
+  }, []);
 
   return (
     <div className="relative flex flex-col w-[100vw] mt-[52px] sm:mt-[76px] lg:mt-[104px] 2xl:mt-[124px] px-6">
