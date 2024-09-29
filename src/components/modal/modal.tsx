@@ -15,18 +15,20 @@ const Modal = () => {
   const modal = useModalStore((state) => state.modal);
   const setModal = useModalStore((state) => state.setModal);
   const btnId = useModalStore((state) => state.btnId);
-  const authorId = useModalStore((state) => state.authorId)
+  const authorId = useModalStore((state) => state.authorId);
   const active = useModalStore((state) => state.active);
 
   const getButtonById = useButtonsStore((state) => state.getButtonById);
+  const resetButton = useButtonsStore((state) => state.resetButton);
   const getAuthorById = useAuthorsStore((state) => state.getAuthorById);
+  const resetAuthor = useAuthorsStore((state) => state.resetAuthor);
   const t = useTranslations("modal");
 
   useEffect(() => {
     const fetchData = () => {
       if (btnId) {
         getButtonById(btnId.toString());
-        getAuthorById(authorId.toString())
+        getAuthorById(authorId.toString());
       }
     };
 
@@ -44,6 +46,8 @@ const Modal = () => {
               <span
                 onClick={() => {
                   setModal(!modal);
+                  resetButton();
+                  resetAuthor();
                   if (active) {
                     setViewActive("button");
                     setDarkMode(true);
