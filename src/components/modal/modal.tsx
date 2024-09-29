@@ -23,6 +23,9 @@ const Modal = () => {
   const getAuthorById = useAuthorsStore((state) => state.getAuthorById);
   const resetAuthor = useAuthorsStore((state) => state.resetAuthor);
   const t = useTranslations("modal");
+  const loadingBtn = useButtonsStore((state) => state.loadingInd);
+  const loadingAut = useButtonsStore((state) => state.loadingInd);
+  const resetBAId = useModalStore((state) => state.resetBAId);
 
   useEffect(() => {
     const fetchData = () => {
@@ -48,6 +51,7 @@ const Modal = () => {
                   setModal(!modal);
                   resetButton();
                   resetAuthor();
+                  resetBAId();
                   if (active) {
                     setViewActive("button");
                     setDarkMode(true);
@@ -57,7 +61,13 @@ const Modal = () => {
               >
                 X
               </span>
-              <span className="text-[18px] lg:text-[24px]">
+              <span
+                className={`text-[18px] lg:text-[24px] ${
+                  loadingAut || loadingBtn
+                    ? "text-transparent rounded-md animate-pulse bg-[#3f3f3f]"
+                    : ""
+                }`}
+              >
                 {t("boton")} #{btnId}
               </span>
               <div className="w-8 lg:w-12 h-8 lg:h-12"></div>{" "}
@@ -66,7 +76,11 @@ const Modal = () => {
 
             <ul className="flex space-x-2 text-[16px] lg:text-[24px] ml-6 mb-4">
               <li
-                className={`cursor-pointer hover:text-[#4A90E2] ${
+                className={`${
+                  loadingBtn || loadingAut
+                    ? "cursor-not-allowed"
+                    : "cursor-pointer"
+                } hover:text-[#4A90E2] ${
                   viewActive == "button" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
                 }`}
                 onClick={() => {
@@ -77,7 +91,11 @@ const Modal = () => {
               </li>
               <li className="cursor-context-menu">|</li>
               <li
-                className={`cursor-pointer hover:text-[#4A90E2] ${
+                className={`${
+                  loadingBtn || loadingAut
+                    ? "cursor-not-allowed"
+                    : "cursor-pointer"
+                } hover:text-[#4A90E2] ${
                   viewActive == "code" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
                 }`}
                 onClick={() => {

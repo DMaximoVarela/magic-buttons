@@ -14,17 +14,19 @@ import { useEffect } from "react";
 
 const Page = () => {
   const buttons = useButtonsStore((state) => state.buttons);
-  const allButtons = useButtonsStore((state) => state.buttonsCopy);
   const t = useTranslations("HomePage");
   const activePage = usePaginationStore((state) => state.active);
   const totalPages = paginationButtons(buttons).length;
   const getButtons = useButtonsStore((state) => state.getButtons);
   const getAllButtons = useButtonsStore((state) => state.getAllButtons);
+  const loading = useButtonsStore((state) => state.loading);
 
   useEffect(() => {
     getButtons();
     getAllButtons();
   }, []);
+
+  console.log(loading);
 
   return (
     <div className="relative flex flex-col w-[100vw] mt-[52px] sm:mt-[76px] lg:mt-[104px] 2xl:mt-[124px] px-6">
@@ -42,26 +44,26 @@ const Page = () => {
         <div className="absolute p-6 w-full h-fit bg-[#202020]">
           <ul className="flex justify-between items-center">
             <li className="text-[20px] sm:text-[24px] lg:text-[32px] text-white">
-              {allButtons.length > 0 ? (
-                `${buttons.length} ${t("btnLength")}`
-              ) : (
+              {loading ? (
                 <MiniContainerSkeleton />
+              ) : (
+                `${buttons.length} ${t("btnLength")}`
               )}
             </li>
             <li className="text-[16px] sm:text-[18px] lg:text-[20px]">
-              {allButtons.length > 0 ? (
+              {loading ? (
+                <MiniContainerSkeleton />
+              ) : (
                 `${t("pagination.lineOne")} ${activePage + 1} ${t(
                   "pagination.lineTwo"
                 )} ${totalPages === 0 ? 1 : totalPages}`
-              ) : (
-                <MiniContainerSkeleton />
               )}
             </li>
           </ul>
           <FiltersSelected />
           <Cards />
           <div className="relative flex justify-center items-center mt-4">
-            {allButtons.length > 0 ? <Pagination /> : <ContainerSkeleton />}
+            {loading ? <ContainerSkeleton /> : <Pagination />}
           </div>
         </div>
       </div>
