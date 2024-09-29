@@ -25,7 +25,7 @@ const ButtonView: React.FC<content> = ({ darkMode, setDarkMode }) => {
   return (
     <div>
       {loadingBtn || loadingAut ? (
-        <button className="w-12 h-4 rounded-md animate-pulse bg-[#3f3f3f] cursor-default" />
+        <button className="w-24 h-8 rounded-md animate-pulse bg-[#3f3f3f] cursor-default" />
       ) : (
         <Button codeString={button?.tailwindCode || ""} />
       )}
