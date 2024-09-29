@@ -23,6 +23,8 @@ const Modal = () => {
   const getAuthorById = useAuthorsStore((state) => state.getAuthorById);
   const resetAuthor = useAuthorsStore((state) => state.resetAuthor);
   const t = useTranslations("modal");
+  const loadingBtn = useButtonsStore((state) => state.loadingInd);
+  const loadingAut = useButtonsStore((state) => state.loadingInd);
 
   useEffect(() => {
     const fetchData = () => {
@@ -57,7 +59,13 @@ const Modal = () => {
               >
                 X
               </span>
-              <span className="text-[18px] lg:text-[24px]">
+              <span
+                className={`text-[18px] lg:text-[24px] ${
+                  loadingAut || loadingBtn
+                    ? "text-transparent rounded-md animate-pulse bg-[#3f3f3f]"
+                    : ""
+                }`}
+              >
                 {t("boton")} #{btnId}
               </span>
               <div className="w-8 lg:w-12 h-8 lg:h-12"></div>{" "}
