@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 export default function LandingPage() {
   const getButtons = useButtonsStore((state) => state.getButtons);
   const getAllButtons = useButtonsStore((state) => state.getAllButtons);
+  const allButtons = useButtonsStore((state) => state.buttonsCopy);
   const t = useTranslations("LandingPage");
 
   useEffect(() => {
@@ -18,13 +19,27 @@ export default function LandingPage() {
     getAllButtons();
   }, []);
 
+  function perfectNum(num: number) {
+    const lastDigit = num % 10;
+
+    if (lastDigit === 0) {
+      return num;
+    } else if (lastDigit > 5) {
+      return num - lastDigit + 5;
+    } else {
+      return num - lastDigit;
+    }
+  }
+
   return (
     <main className="flex flex-col justify-center items-center">
       <div className={style.bg}></div>
       <div className="text-center px-6">
         <h1 className="text-[32px] sm:text-[42px] lg:text-[52px] 2xl:text-[72px] 4xl:text-[84px] font-bold">
           {t("title.lineOne")}{" "}
-          <span className="text-[#4A90E2]">{t("title.lineTwo")}</span>{" "}
+          <span className="text-[#4A90E2]">{`+${perfectNum(
+            allButtons.length
+          )} ${t("title.lineTwo")}`}</span>{" "}
           <span className="sm:hidden">{t("title.lineThree")}</span>
           <br />
           <span className="xsm:hidden sm:inline-block">
