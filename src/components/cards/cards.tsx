@@ -16,6 +16,7 @@ const Cards = () => {
   const allButtonsCopy = useButtonsStore((state) => state.buttonsCopy);
   const activePage = usePaginationStore((state) => state.active);
   const pageButtons = paginationButtons(allButtons);
+  const loading = useButtonsStore((state) => state.loading);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +45,7 @@ const Cards = () => {
   return (
     <div>
       <ul className="flex flex-wrap justify-center sm:justify-between items-center gap-y-6 lg:gap-y-10">
-        {allButtonsCopy.length > 0 && allButtons.length > 0 ? (
+        {!loading ? (
           pageButtons[activePage]?.map((btn) => (
             <ButtonContainer key={btn.id} btnId={btn.id} />
           ))

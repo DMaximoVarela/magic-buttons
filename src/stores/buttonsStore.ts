@@ -20,6 +20,8 @@ interface State {
   buttonsCopy: Button[];
   button: Button | null;
   randomButton: Button | null;
+  loading: boolean;
+  loadingInd: boolean;
   getButtons: (categoria?: string, tamano?: string, estilo?: string) => void;
   getAllButtons: () => void;
   getButtonById: (id: string) => void;
@@ -84,38 +86,52 @@ const useButtonsStore = create<State>((set) => ({
   buttonsCopy: [],
   button: null,
   randomButton: null,
+  loading: true,
+  loadingInd: true,
   getButtons: async (categoria?: string, tamano?: string, estilo?: string) => {
     try {
+      set({ loading: true });
       const buttonsFiltered = await getButtons(categoria, tamano, estilo);
       set({ buttons: buttonsFiltered });
     } catch (error) {
       console.error("Error en el store:", error);
+    } finally {
+      set({ loading: false });
     }
   },
   getAllButtons: async () => {
     try {
+      set({ loading: true });
       const buttons = await getAllButtons();
       set({ buttonsCopy: buttons });
     } catch (error) {
       console.error("Error en la store: ", error);
+    } finally {
+      set({ loading: false });
     }
   },
   getButtonById: async (id: string) => {
     try {
+      set({ loadingInd: true });
       const button = await getButtonById(id);
       set({ button: button });
     } catch (error) {
       console.error("Error en la store:", error);
       set({ button: null });
+    } finally {
+      set({ loadingInd: false });
     }
   },
   getRandomButton: async (id) => {
     try {
+      set({ loadingInd: true });
       const button = await getButtonById(id);
       set({ randomButton: button });
     } catch (error) {
       console.error("Error en la store:", error);
       set({ randomButton: null });
+    } finally {
+      set({ loadingInd: false });
     }
   },
   resetButton: () => {
