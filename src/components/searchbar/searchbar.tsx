@@ -46,7 +46,7 @@ const Searchbar = () => {
     if (e.key === "Enter") {
       e.preventDefault();
       if (buttonId) {
-        await getButtonById(buttonId);
+        getButtonById(buttonId);
         handleButtonResult(button);
       } else {
         createToast(t("errorsMessages.errorThree"));
@@ -59,7 +59,7 @@ const Searchbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (buttonId) {
-        await getButtonById(buttonId);
+        getButtonById(buttonId);
       }
     };
 

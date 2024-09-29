@@ -24,6 +24,7 @@ interface State {
   getAllButtons: () => void;
   getButtonById: (id: string) => void;
   getRandomButton: (id: string) => void;
+  resetButton: () => void;
 }
 
 const getButtons = async (
@@ -116,6 +117,9 @@ const useButtonsStore = create<State>((set) => ({
       console.error("Error en la store:", error);
       set({ randomButton: null });
     }
+  },
+  resetButton: () => {
+    set({ button: null });
   },
 }));
 

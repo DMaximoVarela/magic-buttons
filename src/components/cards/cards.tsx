@@ -32,8 +32,8 @@ const Cards = () => {
         estilo = filters.style;
       }
 
-      await getButtons(category, tamano, estilo);
-      await getAllButtons();
+      getButtons(category, tamano, estilo);
+      getAllButtons();
     };
 
     fetchData();

@@ -15,6 +15,7 @@ interface State {
   author: Author | null;
   getAuthors: () => void;
   getAuthorById: (id: string) => void;
+  resetAuthor: () => void;
 }
 
 const getAuthors = async () => {
@@ -62,6 +63,9 @@ const useAuthorsStore = create<State>((set) => ({
       console.error("Error en la store:", error);
       set({ author: null });
     }
+  },
+  resetAuthor: () => {
+    set({ author: null });
   },
 }));
 

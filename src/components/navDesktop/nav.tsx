@@ -64,7 +64,7 @@ const Nav = () => {
     const randomNumber = generateRandomNumber(1, 6);
 
     const fetchData = async () => {
-      await getRandomButton(randomNumber.toString());
+      getRandomButton(randomNumber.toString());
     };
 
     fetchData();
