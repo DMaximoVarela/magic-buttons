@@ -74,7 +74,11 @@ const Modal = () => {
 
             <ul className="flex space-x-2 text-[16px] lg:text-[24px] ml-6 mb-4">
               <li
-                className={`cursor-pointer hover:text-[#4A90E2] ${
+                className={`${
+                  loadingBtn || loadingAut
+                    ? "cursor-not-allowed"
+                    : "cursor-pointer"
+                } hover:text-[#4A90E2] ${
                   viewActive == "button" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
                 }`}
                 onClick={() => {
@@ -85,7 +89,11 @@ const Modal = () => {
               </li>
               <li className="cursor-context-menu">|</li>
               <li
-                className={`cursor-pointer hover:text-[#4A90E2] ${
+                className={`${
+                  loadingBtn || loadingAut
+                    ? "cursor-not-allowed"
+                    : "cursor-pointer"
+                } hover:text-[#4A90E2] ${
                   viewActive == "code" ? "text-[#4A90E2]" : "text-[#c7c7c7]"
                 }`}
                 onClick={() => {
