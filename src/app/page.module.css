@@ -1,7 +1,4 @@
 .bg {
-  position: absolute;
-  top: 0%;
-  left: 0%;
   background: rgb(74, 144, 226);
   background: radial-gradient(
     circle at center top,
@@ -13,4 +10,13 @@
   width: 100vw;
   height: 100vh;
   z-index: -1;
+}
+
+.noScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.noScroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

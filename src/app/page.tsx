@@ -33,9 +33,12 @@ export default function LandingPage() {
   }
 
   return (
-    <main className="w-full h-screen snap-y snap-mandatory">
-      <div className={style.bg}></div>
-      <section className="h-screen flex flex-col justify-center items-center snap-start">
+    <main
+      className={`w-full h-screen snap-y snap-proximity overflow-y-scroll scroll-smooth ${style.noScroll}`}
+    >
+      <section
+        className={`h-screen flex flex-col justify-center items-center snap-start ${style.bg}`}
+      >
         <div className="text-center px-6">
           <h1 className="text-[32px] sm:text-[42px] lg:text-[52px] 2xl:text-[72px] 4xl:text-[84px] font-bold">
             {t("title.lineOne")}{" "}
@@ -93,6 +96,52 @@ export default function LandingPage() {
             />
           </section>
         </div>
+      </section>
+      <section className="h-screen flex flex-col justify-center items-center snap-start">
+        <div className="flex justify-center items-center px-6 space-x-6">
+          <section className="w-1/2">
+            <Image
+              src={"/images/Landing2.png"}
+              alt="MagicButtons"
+              width={700}
+              height={700}
+              style={{
+                boxShadow: "0px 0px 15px 0px rgba(199,199,199,0.15)",
+                borderRadius: "24px",
+              }}
+            />
+          </section>
+          <section className="flex flex-col justify-start items-start w-1/2">
+            <h2 className="text-[24px] sm:text-[32px] lg:text-[42px] 2xl:text-[62px] 4xl:text-[74px] font-bold text-start">
+              <span className="text-[#4A90E2]">Modal Interactiva</span> y{" "}
+              <span className="text-[#4A90E2]">Personalizable</span>
+            </h2>
+            <span className="text-[16px] sm:text-[24px] 2xl:text-[32px] 4xl:text-[42px] text-start">
+              Cambia el fondo de la modal y selecciona entre HTML, CSS o JSX +
+              Tailwind.
+            </span>
+          </section>
+        </div>
+      </section>
+      <section
+        className={`h-screen flex flex-col justify-center items-center snap-start`}
+      >
+        <div className="text-center px-6">
+          <h1 className="text-[24px] sm:text-[32px] lg:text-[42px] 2xl:text-[62px] 4xl:text-[74px] font-bold">
+            ¿Tienes un
+            <span className="text-[#4A90E2]"> Diseño</span> en Mente?
+            <br />
+            ¡Crea Tu <span className="text-[#4A90E2] inline-block">Botón</span>!
+          </h1>
+          <h2 className="text-[16px] sm:text-[24px] 2xl:text-[32px] 4xl:text-[42px] font-normal text-[#BDC3C7]">
+            Contribuye al proyecto y comparte tu creatividad con la comunidad.
+          </h2>
+        </div>
+        <Link href={"/contribuye"}>
+          <div className="h-[32px] sm:h-[40px] lg:h-[50px] 2xl:h-[64px] my-4 flex justify-center items-center text-[16px] sm:text-[24px] 2xl:text-[32px] font-medium px-4 space-x-1 text-[#4a90e2] border border-[#4a90e2] rounded-3xl bg-[#1456a44d] hover:bg-[#1456a499] cursor-pointer transition duration-500 ease-in-out transform">
+            Contribuir Ahora
+          </div>
+        </Link>
       </section>
     </main>
   );
